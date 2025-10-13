@@ -1,5 +1,8 @@
 packages:
-  - 'services/*'
-  - 'shared/*'
-  - 'backend'
-  - 'frontend'
+  - services/*
+  - shared/*
+  - backend
+  - frontend
+
+onlyBuiltDependencies:
+  - bcrypt

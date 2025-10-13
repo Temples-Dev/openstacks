@@ -44,10 +44,7 @@ import { Session } from './auth/entities/session.entity';
       global: true,
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
-        secret: configService.get('JWT_SECRET', 'your-secret-key'),
-        signOptions: {
-          expiresIn: configService.get('JWT_EXPIRES_IN', '1h'),
-        },
+        secret: configService.get('JWT_SECRET', 'dev-secret-key-change-in-production'),
       }),
       inject: [ConfigService],
     }),

@@ -60,17 +60,15 @@ export class AuthService {
     });
 
     // Generate tokens
-    const payload: JwtPayload = {
+    const payload = {
       sub: user.id,
       username: user.username,
       email: user.email,
       roles: user.roles.map(role => role.name),
       permissions: user.permissions,
-      iat: Math.floor(Date.now() / 1000),
-      exp: Math.floor(Date.now() / 1000) + 3600, // 1 hour
     };
 
-    const accessToken = this.jwtService.sign(payload);
+    const accessToken = this.jwtService.sign(payload, { expiresIn: '1h' });
     const refreshToken = this.jwtService.sign(
       { sub: user.id, type: 'refresh', jti: uuidv4() },
       { expiresIn: loginDto.rememberMe ? '30d' : '7d' }
@@ -158,17 +156,15 @@ export class AuthService {
       }
 
       // Generate new access token
-      const newPayload: JwtPayload = {
+      const newPayload = {
         sub: user.id,
         username: user.username,
         email: user.email,
         roles: user.roles.map(role => role.name),
         permissions: user.permissions,
-        iat: Math.floor(Date.now() / 1000),
-        exp: Math.floor(Date.now() / 1000) + 3600,
       };
 
-      const accessToken = this.jwtService.sign(newPayload);
+      const accessToken = this.jwtService.sign(newPayload, { expiresIn: '1h' });
 
       // Update session with new token
       await this.sessionRepository.update(session.id, {
