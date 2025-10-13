@@ -34,7 +34,7 @@
     "class-validator": "^0.14.2",
     "class-transformer": "^0.5.1",
     "uuid": "^10.0.0",
-    "marc4js": "^2.1.0",
+    "marc4js": "^0.0.10",
     "xml2js": "^0.6.2",
     "lodash": "^4.17.21"
   },

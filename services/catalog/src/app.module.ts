@@ -48,7 +48,7 @@ import { AuthorityRecord } from './authorities/entities/authority-record.entity'
           Location,
           AuthorityRecord,
         ],
-        synchronize: configService.get('NODE_ENV') === 'development',
+        synchronize: false, // Disable auto-sync to avoid conflicts
         logging: configService.get('NODE_ENV') === 'development',
       }),
       inject: [ConfigService],
