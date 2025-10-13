@@ -9,6 +9,13 @@ import { ProxyService } from './proxy.service';
 export class ProxyController {
   constructor(private readonly proxyService: ProxyService) {}
 
+  @All('auth/*')
+  async proxyAuth(@Req() req: Request, @Res() res: Response) {
+    console.log('🔄 Proxying auth request:', req.method, req.url);
+    // Auth endpoints are public (no auth required for login/register)
+    return this.proxyService.proxyRequest(req, res, 'auth');
+  }
+
   @All('catalog/*')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()

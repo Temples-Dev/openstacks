@@ -20,30 +20,34 @@ export class ProxyService {
       throw new BadGatewayException(`Service ${service} not configured`);
     }
 
-    const proxy = createProxyMiddleware({
-      target: serviceUrl,
-      changeOrigin: true,
-      pathRewrite: {
-        [`^/api/v1/${service}`]: '', // Remove service prefix
-      },
-      onError: (err, req, res) => {
-        console.error(`Proxy error for ${service}:`, err);
-        res.status(502).json({
-          success: false,
-          message: `Service ${service} unavailable`,
-          timestamp: new Date().toISOString(),
-        });
-      },
-      onProxyReq: (proxyReq, req) => {
-        // Add user context to headers for downstream services
-        if (req.user) {
-          proxyReq.setHeader('X-User-ID', req.user.userId);
-          proxyReq.setHeader('X-User-Roles', JSON.stringify(req.user.roles));
-          proxyReq.setHeader('X-User-Permissions', JSON.stringify(req.user.permissions));
-        }
-      },
-    });
+    try {
+      const proxy = createProxyMiddleware({
+        target: serviceUrl,
+        changeOrigin: true,
+        pathRewrite: {
+          [`^/api/v1/${service}`]: '', // Remove /api/v1/service prefix
+        },
+      });
 
-    return proxy(req, res);
+      return proxy(req, res, (err) => {
+        if (err) {
+          console.error(`Proxy error for ${service}:`, err);
+          if (!res.headersSent) {
+            res.status(502).json({
+              success: false,
+              message: `Service ${service} unavailable`,
+              timestamp: new Date().toISOString(),
+            });
+          }
+        }
+      });
+    } catch (error) {
+      console.error(`Proxy setup error for ${service}:`, error);
+      res.status(502).json({
+        success: false,
+        message: `Service ${service} unavailable`,
+        timestamp: new Date().toISOString(),
+      });
+    }
   }
 }
