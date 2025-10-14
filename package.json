@@ -20,7 +20,22 @@
     "build:types": "cd shared/types && pnpm run build",
     "build:services": "pnpm run -r build --filter='@shellnexa/*'",
     "test:services": "pnpm run -r test --filter='@shellnexa/*'",
-    "lint:services": "pnpm run -r lint --filter='@shellnexa/*'"
+    "lint:services": "pnpm run -r lint --filter='@shellnexa/*'",
+    "db:setup": "bash scripts/setup-databases.sh",
+    "db:check": "bash scripts/setup-databases.sh --check-only",
+    "db:reset": "bash scripts/setup-databases.sh --drop-existing",
+    "env:setup": "bash scripts/create-env-files.sh",
+    "setup:full": "pnpm run env:setup && pnpm run db:setup && pnpm install",
+    "migrate:all": "pnpm run -r migrate --filter='@shellnexa/*'",
+    "seed:all": "pnpm run -r seed --filter='@shellnexa/*'",
+    "docker:db:start": "bash scripts/docker-db-setup.sh start",
+    "docker:db:stop": "bash scripts/docker-db-setup.sh stop",
+    "docker:db:restart": "bash scripts/docker-db-setup.sh restart",
+    "docker:db:setup": "bash scripts/docker-db-setup.sh setup",
+    "docker:db:status": "bash scripts/docker-db-setup.sh status",
+    "docker:db:logs": "bash scripts/docker-db-setup.sh logs",
+    "docker:db:cleanup": "bash scripts/docker-db-setup.sh cleanup",
+    "docker:db:info": "bash scripts/docker-db-setup.sh info"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.15",
