@@ -1,0 +1,167 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database Server
+  postgres:
+    image: postgres:16-alpine
+    container_name: shellnexa-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-password}
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=en_US.UTF-8"
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+      - ./postgres.conf:/etc/postgresql/postgresql.conf
+    networks:
+      - shellnexa-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    command: >
+      postgres
+      -c shared_preload_libraries=pg_stat_statements
+      -c pg_stat_statements.track=all
+      -c max_connections=200
+      -c shared_buffers=256MB
+      -c effective_cache_size=1GB
+      -c maintenance_work_mem=64MB
+      -c checkpoint_completion_target=0.9
+      -c wal_buffers=16MB
+      -c default_statistics_target=100
+
+  # Redis Cache Server
+  redis:
+    image: redis:7-alpine
+    container_name: shellnexa-redis
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    networks:
+      - shellnexa-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    command: redis-server /usr/local/etc/redis/redis.conf
+
+  # Elasticsearch Search Engine
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: shellnexa-elasticsearch
+    restart: unless-stopped
+    environment:
+      - node.name=shellnexa-es
+      - cluster.name=shellnexa-cluster
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - xpack.security.enabled=false
+      - xpack.security.enrollment.enabled=false
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "${ELASTICSEARCH_PORT:-9200}:9200"
+      - "9300:9300"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    networks:
+      - shellnexa-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Kibana Dashboard
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.11.0
+    container_name: shellnexa-kibana
+    restart: unless-stopped
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - SERVER_NAME=shellnexa-kibana
+    ports:
+      - "${KIBANA_PORT:-5601}:5601"
+    networks:
+      - shellnexa-network
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5601/api/status || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # MailHog Email Testing
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: shellnexa-mailhog
+    restart: unless-stopped
+    ports:
+      - "${MAILHOG_SMTP_PORT:-1025}:1025"
+      - "${MAILHOG_WEB_PORT:-8025}:8025"
+    networks:
+      - shellnexa-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8025"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Database Initialization Service
+  db-init:
+    image: postgres:16-alpine
+    container_name: shellnexa-db-init
+    restart: "no"
+    environment:
+      PGHOST: postgres
+      PGPORT: 5432
+      PGUSER: postgres
+      PGPASSWORD: ${DB_PASSWORD:-password}
+      PGDATABASE: postgres
+    volumes:
+      - ./init-scripts:/scripts
+    networks:
+      - shellnexa-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: >
+      sh -c "
+        echo 'Waiting for PostgreSQL to be ready...'
+        until pg_isready -h postgres -p 5432 -U postgres; do
+          echo 'PostgreSQL is unavailable - sleeping'
+          sleep 2
+        done
+        echo 'PostgreSQL is ready - executing database setup'
+        /scripts/setup-all-databases.sh
+      "
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  elasticsearch_data:
+    driver: local
+
+networks:
+  shellnexa-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
