@@ -8,7 +8,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-20+-green.svg)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8+-blue.svg)](https://www.typescriptlang.org/)
 [![NestJS](https://img.shields.io/badge/NestJS-11+-red.svg)](https://nestjs.com/)
-[![Next.js](https://img.shields.io/badge/Next.js-15+-black.svg)](https://nextjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-7+-black.svg)](https://vite.dev/)
 
 ---
 
