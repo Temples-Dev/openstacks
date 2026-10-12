@@ -1,0 +1,108 @@
+{
+  "name": "ShellNexa Development Environment",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "nodeGypDependencies": true,
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest",
+      "dockerDashComposeVersion": "v2"
+    },
+    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+      "version": "latest",
+      "helm": "latest",
+      "minikube": "none"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.vscode-json",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-vscode.vscode-docker",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "rangav.vscode-thunder-client",
+        "ms-vscode.vscode-postgres",
+        "cweijan.vscode-postgresql-client2",
+        "redhat.vscode-yaml",
+        "ms-vscode.vscode-markdown",
+        "yzhang.markdown-all-in-one"
+      ],
+      "settings": {
+        "typescript.preferences.importModuleSpecifier": "relative",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "explicit"
+        },
+        "files.exclude": {
+          "**/node_modules": true,
+          "**/dist": true,
+          "**/.git": true
+        }
+      }
+    }
+  },
+
+  "forwardPorts": [
+    3000,
+    3001,
+    3002,
+    3003,
+    3004,
+    5432,
+    6379,
+    9200,
+    9300
+  ],
+
+  "portsAttributes": {
+    "3000": {
+      "label": "Frontend App",
+      "onAutoForward": "notify"
+    },
+    "3001": {
+      "label": "API Gateway",
+      "onAutoForward": "notify"
+    },
+    "3002": {
+      "label": "Auth Service",
+      "onAutoForward": "silent"
+    },
+    "3003": {
+      "label": "Catalog Service",
+      "onAutoForward": "silent"
+    },
+    "3004": {
+      "label": "Circulation Service",
+      "onAutoForward": "silent"
+    },
+    "5432": {
+      "label": "PostgreSQL",
+      "onAutoForward": "silent"
+    },
+    "6379": {
+      "label": "Redis",
+      "onAutoForward": "silent"
+    },
+    "9200": {
+      "label": "Elasticsearch",
+      "onAutoForward": "silent"
+    }
+  },
+
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "postStartCommand": "bash .devcontainer/post-start.sh",
+
+  "remoteUser": "node"
+}

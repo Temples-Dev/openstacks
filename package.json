@@ -1,0 +1,40 @@
+{
+  "name": "shellnexa",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "biome check .",
+    "check:write": "biome check --write .",
+    "dev:setup": "bash scripts/dev-start.sh",
+    "dev:backend": "cd services/api-gateway && pnpm run start:dev",
+    "dev:web": "pnpm --filter @shellnexa/web dev",
+    "dev:services": "docker-compose -f docker-compose.dev.yml up -d",
+    "dev:stop": "docker-compose -f docker-compose.dev.yml down",
+    "dev:clean": "docker-compose -f docker-compose.dev.yml down -v",
+    "build:types": "pnpm --filter @shellnexa/types build",
+    "build:services": "pnpm run -r build --filter='@shellnexa/*'",
+    "build:web": "pnpm --filter @shellnexa/web build",
+    "test:services": "pnpm run -r test --filter='@shellnexa/*'",
+    "lint:services": "pnpm run -r lint --filter='@shellnexa/*'",
+    "db:setup": "bash scripts/setup-databases.sh",
+    "db:check": "bash scripts/setup-databases.sh --check-only",
+    "db:reset": "bash scripts/setup-databases.sh --drop-existing",
+    "env:setup": "bash scripts/create-env-files.sh",
+    "setup:full": "pnpm run env:setup && pnpm run db:setup && pnpm install",
+    "migrate:all": "pnpm run -r migrate --filter='@shellnexa/*'",
+    "seed:all": "pnpm run -r seed --filter='@shellnexa/*'",
+    "docker:db:start": "bash scripts/docker-db-setup.sh start",
+    "docker:db:stop": "bash scripts/docker-db-setup.sh stop",
+    "docker:db:restart": "bash scripts/docker-db-setup.sh restart",
+    "docker:db:setup": "bash scripts/docker-db-setup.sh setup",
+    "docker:db:status": "bash scripts/docker-db-setup.sh status",
+    "docker:db:logs": "bash scripts/docker-db-setup.sh logs",
+    "docker:db:cleanup": "bash scripts/docker-db-setup.sh cleanup",
+    "docker:db:info": "bash scripts/docker-db-setup.sh info"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4"
+  },
+  "packageManager": "pnpm@10.18.1"
+}
