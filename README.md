@@ -1,8 +1,8 @@
 # 📚 ShellNexa
 
-**The World's Most Advanced Library Management System**
+**Open-source library management system**
 
-*Enterprise-grade library platform with AI-powered automation, multi-tenant architecture, and unlimited scalability.*
+*Multi-tenant library platform: cataloging, circulation, acquisitions, and reporting across branches and consortiums.*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/Node.js-20+-green.svg)](https://nodejs.org/)
@@ -18,12 +18,12 @@ ShellNexa is a comprehensive library management ecosystem that transforms tradit
 
 ### **🎯 Key Features**
 
-- **🏢 Multi-Tenant Architecture** - Support for unlimited library branches and consortiums
-- **🤖 AI-Powered Recommendations** - Machine learning engine with 90%+ accuracy
-- **🔄 Automated Workflows** - 40% reduction in manual processes
+- **🏢 Multi-Tenant Architecture** - Library branches and consortiums under one platform
+- **🤖 Recommendations** - Machine learning engine for catalog recommendations
+- **🔄 Automated Workflows** - Circulation, notifications, and routine processes
 - **📊 Real-Time Analytics** - Comprehensive reporting and business intelligence
 - **🌐 Standards Compliant** - MARC, Dublin Core, COUNTER, OAI-PMH support
-- **⚡ Enterprise Scale** - Support for 1M+ patrons, 10M+ items
+- **⚡ Built to Scale** - PostgreSQL-backed services per domain, horizontally scalable
 - **🔐 Security First** - Multi-layered security with audit trails
 
 ---
@@ -280,7 +280,7 @@ POST /api/v1/circulation/reserve     # Reserve item
 ### **Recommendation Engine**
 - **Collaborative Filtering:** User-based recommendations
 - **Content-Based:** Item similarity recommendations
-- **Hybrid Approach:** Combined algorithms for 90%+ accuracy
+- **Hybrid Approach:** Combined algorithms
 - **Real-time Learning:** Continuous model improvement
 
 ### **Predictive Analytics**
@@ -349,7 +349,7 @@ POST /api/v1/circulation/reserve     # Reserve item
 - **Feature flags:** Tenant-specific feature control
 
 ### **Consortium Support**
-- **Branch management:** Unlimited library branches
+- **Branch management:** Multiple library branches
 - **Resource sharing:** Cross-branch lending
 - **Unified search:** Search across all branches
 - **Centralized reporting:** Consortium-wide analytics
