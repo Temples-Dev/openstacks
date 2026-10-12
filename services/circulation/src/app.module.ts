@@ -37,8 +37,8 @@ import { FinePayment } from './fines/entities/fine-payment.entity';
         type: 'postgres',
         host: configService.get('DB_HOST', 'localhost'),
         port: configService.get('DB_PORT', 5432),
-        username: configService.get('DB_USERNAME', 'shellnexa'),
-        password: configService.get('DB_PASSWORD', 'shellnexa_dev'),
+        username: configService.get('DB_USERNAME', 'openstacks'),
+        password: configService.get('DB_PASSWORD', 'openstacks_dev'),
         database: configService.get('DB_DATABASE', 'circulation_service'),
         entities: [
           Patron,

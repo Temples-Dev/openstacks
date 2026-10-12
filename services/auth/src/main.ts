@@ -20,7 +20,7 @@ async function bootstrap() {
 
   // Swagger documentation
   const config = new DocumentBuilder()
-    .setTitle('ShellNexa Auth Service')
+    .setTitle('OpenStacks Auth Service')
     .setDescription('Authentication and User Management Service')
     .setVersion('1.0')
     .addBearerAuth()
@@ -36,7 +36,7 @@ async function bootstrap() {
   const port = process.env.PORT || 3002;
   await app.listen(port);
 
-  console.log(`🔐 ShellNexa Auth Service running on port ${port}`);
+  console.log(`🔐 OpenStacks Auth Service running on port ${port}`);
   console.log(`📚 API Documentation: http://localhost:${port}/docs`);
 }
 

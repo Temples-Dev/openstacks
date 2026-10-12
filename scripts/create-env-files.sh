@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ShellNexa Environment Files Creation Script
+# OpenStacks Environment Files Creation Script
 # Automatically creates .env files for all services with database configuration
 
 set -e
@@ -23,7 +23,7 @@ ELASTICSEARCH_PORT=${ELASTICSEARCH_PORT:-9200}
 print_header() {
     echo -e "${BLUE}"
     echo "╔══════════════════════════════════════════════════════════════════╗"
-    echo "║                ShellNexa Environment Setup                       ║"
+    echo "║                OpenStacks Environment Setup                       ║"
     echo "║              Automated .env File Creation                       ║"
     echo "╚══════════════════════════════════════════════════════════════════╝"
     echo -e "${NC}"
@@ -121,7 +121,7 @@ REDIS_PORT=$REDIS_PORT
 REDIS_PASSWORD=
 
 # JWT Configuration
-JWT_SECRET=shellnexa-dev-secret-$(date +%s)
+JWT_SECRET=openstacks-dev-secret-$(date +%s)
 JWT_EXPIRES_IN=24h
 JWT_REFRESH_EXPIRES_IN=7d
 
@@ -193,7 +193,7 @@ ELASTICSEARCH_HOST=$ELASTICSEARCH_HOST
 ELASTICSEARCH_PORT=$ELASTICSEARCH_PORT
 ELASTICSEARCH_USERNAME=
 ELASTICSEARCH_PASSWORD=
-SEARCH_INDEX_PREFIX=shellnexa
+SEARCH_INDEX_PREFIX=openstacks
 SEARCH_BATCH_SIZE=1000
 
 EOF
@@ -217,7 +217,7 @@ EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
 EMAIL_USERNAME=
 EMAIL_PASSWORD=
-EMAIL_FROM=noreply@shellnexa.com
+EMAIL_FROM=noreply@openstacks.com
 ISO_ILL_ENABLED=true
 OCLC_API_KEY=
 OCLC_SECRET=
@@ -272,18 +272,18 @@ main() {
     
     # Service configuration
     declare -A SERVICES=(
-        ["api-gateway"]="shellnexa_gateway:shellnexa_gateway_user:3001:API Gateway & Routing"
-        ["auth"]="shellnexa_auth:shellnexa_auth_user:3002:Authentication & Authorization"
-        ["catalog"]="shellnexa_catalog:shellnexa_catalog_user:3003:Library Catalog Management"
-        ["circulation"]="shellnexa_circulation:shellnexa_circulation_user:3004:Circulation & Lending"
-        ["acquisitions"]="shellnexa_acquisitions:shellnexa_acquisitions_user:3005:Acquisitions & Ordering"
-        ["discovery"]="shellnexa_discovery:shellnexa_discovery_user:3006:Search & Discovery"
-        ["reporting"]="shellnexa_reporting:shellnexa_reporting_user:3007:Analytics & Reporting"
-        ["multi-tenant"]="shellnexa_multitenant:shellnexa_multitenant_user:3008:Multi-Tenant Architecture"
-        ["ill"]="shellnexa_ill:shellnexa_ill_user:3009:Interlibrary Loan System"
-        ["e-resources"]="shellnexa_eresources:shellnexa_eresources_user:3010:E-Resource Management"
-        ["digital-repository"]="shellnexa_repository:shellnexa_repository_user:3011:Digital Repository & Preservation"
-        ["ai-ml"]="shellnexa_aiml:shellnexa_aiml_user:3012:AI/ML Engine & Recommendations"
+        ["api-gateway"]="openstacks_gateway:openstacks_gateway_user:3001:API Gateway & Routing"
+        ["auth"]="openstacks_auth:openstacks_auth_user:3002:Authentication & Authorization"
+        ["catalog"]="openstacks_catalog:openstacks_catalog_user:3003:Library Catalog Management"
+        ["circulation"]="openstacks_circulation:openstacks_circulation_user:3004:Circulation & Lending"
+        ["acquisitions"]="openstacks_acquisitions:openstacks_acquisitions_user:3005:Acquisitions & Ordering"
+        ["discovery"]="openstacks_discovery:openstacks_discovery_user:3006:Search & Discovery"
+        ["reporting"]="openstacks_reporting:openstacks_reporting_user:3007:Analytics & Reporting"
+        ["multi-tenant"]="openstacks_multitenant:openstacks_multitenant_user:3008:Multi-Tenant Architecture"
+        ["ill"]="openstacks_ill:openstacks_ill_user:3009:Interlibrary Loan System"
+        ["e-resources"]="openstacks_eresources:openstacks_eresources_user:3010:E-Resource Management"
+        ["digital-repository"]="openstacks_repository:openstacks_repository_user:3011:Digital Repository & Preservation"
+        ["ai-ml"]="openstacks_aiml:openstacks_aiml_user:3012:AI/ML Engine & Recommendations"
     )
     
     print_info "Creating environment files for all services..."
@@ -306,7 +306,7 @@ main() {
     
     # Create global .env file
     cat > ".env" << EOF
-# ShellNexa Global Environment Configuration
+# OpenStacks Global Environment Configuration
 
 # Environment
 NODE_ENV=development
@@ -329,7 +329,7 @@ ELASTICSEARCH_USERNAME=
 ELASTICSEARCH_PASSWORD=
 
 # Global JWT Secret
-GLOBAL_JWT_SECRET=shellnexa-global-secret-$(date +%s)
+GLOBAL_JWT_SECRET=openstacks-global-secret-$(date +%s)
 
 # Monitoring
 HEALTH_CHECK_ENABLED=true

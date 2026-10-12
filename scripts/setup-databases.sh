@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ShellNexa Database Setup Script
+# OpenStacks Database Setup Script
 # Automatically creates all databases for Phase 1 and Phase 2 services
 
 set -e  # Exit on any error
@@ -21,18 +21,18 @@ DB_ADMIN_DB=${DB_ADMIN_DB:-postgres}
 
 # Database names for all services
 declare -A DATABASES=(
-    ["api-gateway"]="shellnexa_gateway"
-    ["auth"]="shellnexa_auth"
-    ["catalog"]="shellnexa_catalog"
-    ["circulation"]="shellnexa_circulation"
-    ["acquisitions"]="shellnexa_acquisitions"
-    ["discovery"]="shellnexa_discovery"
-    ["reporting"]="shellnexa_reporting"
-    ["multi-tenant"]="shellnexa_multitenant"
-    ["ill"]="shellnexa_ill"
-    ["e-resources"]="shellnexa_eresources"
-    ["digital-repository"]="shellnexa_repository"
-    ["ai-ml"]="shellnexa_aiml"
+    ["api-gateway"]="openstacks_gateway"
+    ["auth"]="openstacks_auth"
+    ["catalog"]="openstacks_catalog"
+    ["circulation"]="openstacks_circulation"
+    ["acquisitions"]="openstacks_acquisitions"
+    ["discovery"]="openstacks_discovery"
+    ["reporting"]="openstacks_reporting"
+    ["multi-tenant"]="openstacks_multitenant"
+    ["ill"]="openstacks_ill"
+    ["e-resources"]="openstacks_eresources"
+    ["digital-repository"]="openstacks_repository"
+    ["ai-ml"]="openstacks_aiml"
 )
 
 # Service descriptions
@@ -54,7 +54,7 @@ declare -A SERVICE_DESCRIPTIONS=(
 print_header() {
     echo -e "${BLUE}"
     echo "╔══════════════════════════════════════════════════════════════════╗"
-    echo "║                    ShellNexa Database Setup                      ║"
+    echo "║                    OpenStacks Database Setup                      ║"
     echo "║                  Automated Database Creation                     ║"
     echo "╚══════════════════════════════════════════════════════════════════╝"
     echo -e "${NC}"
@@ -186,14 +186,14 @@ setup_extensions() {
     
     # Special extensions for specific services
     case $db_name in
-        "shellnexa_multitenant")
+        "openstacks_multitenant")
             # PostGIS for geospatial features
             if psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USERNAME" -d "$db_name" \
                    -c "CREATE EXTENSION IF NOT EXISTS postgis;" &> /dev/null; then
                 print_info "Enabled PostGIS extension for multi-tenant service"
             fi
             ;;
-        "shellnexa_catalog"|"shellnexa_discovery")
+        "openstacks_catalog"|"openstacks_discovery")
             # Full text search extensions
             if psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USERNAME" -d "$db_name" \
                    -c "CREATE EXTENSION IF NOT EXISTS unaccent;" &> /dev/null; then
@@ -247,18 +247,18 @@ setup_service_users() {
     
     # Create service-specific users for better security
     local service_users=(
-        "shellnexa_gateway_user:gateway_pass"
-        "shellnexa_auth_user:auth_pass"
-        "shellnexa_catalog_user:catalog_pass"
-        "shellnexa_circulation_user:circulation_pass"
-        "shellnexa_acquisitions_user:acquisitions_pass"
-        "shellnexa_discovery_user:discovery_pass"
-        "shellnexa_reporting_user:reporting_pass"
-        "shellnexa_multitenant_user:multitenant_pass"
-        "shellnexa_ill_user:ill_pass"
-        "shellnexa_eresources_user:eresources_pass"
-        "shellnexa_repository_user:repository_pass"
-        "shellnexa_aiml_user:aiml_pass"
+        "openstacks_gateway_user:gateway_pass"
+        "openstacks_auth_user:auth_pass"
+        "openstacks_catalog_user:catalog_pass"
+        "openstacks_circulation_user:circulation_pass"
+        "openstacks_acquisitions_user:acquisitions_pass"
+        "openstacks_discovery_user:discovery_pass"
+        "openstacks_reporting_user:reporting_pass"
+        "openstacks_multitenant_user:multitenant_pass"
+        "openstacks_ill_user:ill_pass"
+        "openstacks_eresources_user:eresources_pass"
+        "openstacks_repository_user:repository_pass"
+        "openstacks_aiml_user:aiml_pass"
     )
     
     for user_info in "${service_users[@]}"; do
@@ -341,7 +341,7 @@ main() {
                 create_schemas "$db_name" "$service"
                 
                 # Grant permissions to service user
-                service_user="shellnexa_${service//-/_}_user"
+                service_user="openstacks_${service//-/_}_user"
                 grant_permissions "$service_user" "$db_name"
             else
                 failed_databases+=("$service:$db_name")

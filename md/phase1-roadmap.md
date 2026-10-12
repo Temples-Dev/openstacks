@@ -1,8 +1,8 @@
-# ShellNexa Phase 1 Implementation Roadmap
+# OpenStacks Phase 1 Implementation Roadmap
 
 ## Overview
 
-This document outlines the implementation roadmap for **Phase 1 - Core Parity** of ShellNexa, the enterprise-grade Library Management Platform. Phase 1 focuses on establishing foundational library management capabilities that provide feature parity with existing ILS solutions.
+This document outlines the implementation roadmap for **Phase 1 - Core Parity** of OpenStacks, the enterprise-grade Library Management Platform. Phase 1 focuses on establishing foundational library management capabilities that provide feature parity with existing ILS solutions.
 
 **Phase 1 Goal:** Deliver a minimum viable product (MVP) that covers essential library operations and can serve as a foundation for future enhancements.
 

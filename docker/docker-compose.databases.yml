@@ -4,7 +4,7 @@ services:
   # PostgreSQL Database Server
   postgres:
     image: postgres:16-alpine
-    container_name: shellnexa-postgres
+    container_name: openstacks-postgres
     restart: unless-stopped
     environment:
       POSTGRES_DB: postgres
@@ -18,7 +18,7 @@ services:
       - ./init-scripts:/docker-entrypoint-initdb.d
       - ./postgres.conf:/etc/postgresql/postgresql.conf
     networks:
-      - shellnexa-network
+      - openstacks-network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
@@ -39,7 +39,7 @@ services:
   # Redis Cache Server
   redis:
     image: redis:7-alpine
-    container_name: shellnexa-redis
+    container_name: openstacks-redis
     restart: unless-stopped
     ports:
       - "${REDIS_PORT:-6379}:6379"
@@ -47,7 +47,7 @@ services:
       - redis_data:/data
       - ./redis.conf:/usr/local/etc/redis/redis.conf
     networks:
-      - shellnexa-network
+      - openstacks-network
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
@@ -58,11 +58,11 @@ services:
   # Elasticsearch Search Engine
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
-    container_name: shellnexa-elasticsearch
+    container_name: openstacks-elasticsearch
     restart: unless-stopped
     environment:
-      - node.name=shellnexa-es
-      - cluster.name=shellnexa-cluster
+      - node.name=openstacks-es
+      - cluster.name=openstacks-cluster
       - discovery.type=single-node
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
@@ -78,7 +78,7 @@ services:
     volumes:
       - elasticsearch_data:/usr/share/elasticsearch/data
     networks:
-      - shellnexa-network
+      - openstacks-network
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
       interval: 30s
@@ -88,15 +88,15 @@ services:
   # Kibana Dashboard
   kibana:
     image: docker.elastic.co/kibana/kibana:8.11.0
-    container_name: shellnexa-kibana
+    container_name: openstacks-kibana
     restart: unless-stopped
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-      - SERVER_NAME=shellnexa-kibana
+      - SERVER_NAME=openstacks-kibana
     ports:
       - "${KIBANA_PORT:-5601}:5601"
     networks:
-      - shellnexa-network
+      - openstacks-network
     depends_on:
       elasticsearch:
         condition: service_healthy
@@ -109,13 +109,13 @@ services:
   # MailHog Email Testing
   mailhog:
     image: mailhog/mailhog:latest
-    container_name: shellnexa-mailhog
+    container_name: openstacks-mailhog
     restart: unless-stopped
     ports:
       - "${MAILHOG_SMTP_PORT:-1025}:1025"
       - "${MAILHOG_WEB_PORT:-8025}:8025"
     networks:
-      - shellnexa-network
+      - openstacks-network
     healthcheck:
       test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8025"]
       interval: 30s
@@ -125,7 +125,7 @@ services:
   # Database Initialization Service
   db-init:
     image: postgres:16-alpine
-    container_name: shellnexa-db-init
+    container_name: openstacks-db-init
     restart: "no"
     environment:
       PGHOST: postgres
@@ -136,7 +136,7 @@ services:
     volumes:
       - ./init-scripts:/scripts
     networks:
-      - shellnexa-network
+      - openstacks-network
     depends_on:
       postgres:
         condition: service_healthy
@@ -160,7 +160,7 @@ volumes:
     driver: local
 
 networks:
-  shellnexa-network:
+  openstacks-network:
     driver: bridge
     ipam:
       config:

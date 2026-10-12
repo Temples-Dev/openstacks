@@ -16,7 +16,7 @@ import { Session } from './entities/session.entity';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
-import { LoginResponse, JwtPayload } from '@shellnexa/types';
+import { LoginResponse, JwtPayload } from '@openstacks/types';
 
 @Injectable()
 export class AuthService {

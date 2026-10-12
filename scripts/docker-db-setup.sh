@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ShellNexa Docker Database Setup Script
+# OpenStacks Docker Database Setup Script
 # Manages Docker-based database infrastructure
 
 set -e
@@ -19,7 +19,7 @@ ENV_FILE=".env"
 print_header() {
     echo -e "${BLUE}"
     echo "╔══════════════════════════════════════════════════════════════════╗"
-    echo "║                ShellNexa Docker Database Manager                 ║"
+    echo "║                OpenStacks Docker Database Manager                 ║"
     echo "║                   Container-based Infrastructure                 ║"
     echo "╚══════════════════════════════════════════════════════════════════╝"
     echo -e "${NC}"
@@ -79,10 +79,10 @@ create_env_file() {
     
     if [ ! -f "$ENV_FILE" ]; then
         cat > "$ENV_FILE" << EOF
-# ShellNexa Docker Database Configuration
+# OpenStacks Docker Database Configuration
 
 # Database Settings
-DB_PASSWORD=shellnexa_secure_password_2024
+DB_PASSWORD=openstacks_secure_password_2024
 DB_PORT=5432
 
 # Redis Settings
@@ -99,7 +99,7 @@ MAILHOG_SMTP_PORT=1025
 MAILHOG_WEB_PORT=8025
 
 # Docker Settings
-COMPOSE_PROJECT_NAME=shellnexa
+COMPOSE_PROJECT_NAME=openstacks
 EOF
         print_success "Created $ENV_FILE"
     else
@@ -236,7 +236,7 @@ show_connection_info() {
     
     echo "📊 Database Services:"
     echo "   • PostgreSQL: localhost:5432"
-    echo "     - Admin: postgres / shellnexa_secure_password_2024"
+    echo "     - Admin: postgres / openstacks_secure_password_2024"
     echo "     - 12 service databases created automatically"
     echo ""
     echo "   • Redis: localhost:6379"
@@ -276,7 +276,7 @@ setup_databases() {
 }
 
 show_help() {
-    echo "ShellNexa Docker Database Manager"
+    echo "OpenStacks Docker Database Manager"
     echo ""
     echo "Usage: $0 [command]"
     echo ""

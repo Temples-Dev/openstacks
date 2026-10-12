@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { HealthCheckResponse, ServiceHealth } from '@shellnexa/types';
+import { HealthCheckResponse, ServiceHealth } from '@openstacks/types';
 
 @Injectable()
 export class HealthService {

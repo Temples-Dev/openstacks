@@ -1,98 +1,98 @@
 {
   "databases": {
     "api-gateway": {
-      "name": "shellnexa_gateway",
+      "name": "openstacks_gateway",
       "description": "API Gateway & Routing",
       "port": 3001,
-      "user": "shellnexa_gateway_user",
+      "user": "openstacks_gateway_user",
       "schemas": ["public", "audit", "config", "routing"],
       "extensions": ["uuid-ossp", "pg_trgm"]
     },
     "auth": {
-      "name": "shellnexa_auth",
+      "name": "openstacks_auth",
       "description": "Authentication & Authorization",
       "port": 3002,
-      "user": "shellnexa_auth_user",
+      "user": "openstacks_auth_user",
       "schemas": ["public", "audit", "config", "sessions"],
       "extensions": ["uuid-ossp", "pg_trgm", "pgcrypto"]
     },
     "catalog": {
-      "name": "shellnexa_catalog",
+      "name": "openstacks_catalog",
       "description": "Library Catalog Management",
       "port": 3003,
-      "user": "shellnexa_catalog_user",
+      "user": "openstacks_catalog_user",
       "schemas": ["public", "audit", "config", "marc", "metadata"],
       "extensions": ["uuid-ossp", "pg_trgm", "unaccent", "btree_gin"]
     },
     "circulation": {
-      "name": "shellnexa_circulation",
+      "name": "openstacks_circulation",
       "description": "Circulation & Lending",
       "port": 3004,
-      "user": "shellnexa_circulation_user",
+      "user": "openstacks_circulation_user",
       "schemas": ["public", "audit", "config", "transactions"],
       "extensions": ["uuid-ossp", "pg_trgm", "btree_gin"]
     },
     "acquisitions": {
-      "name": "shellnexa_acquisitions",
+      "name": "openstacks_acquisitions",
       "description": "Acquisitions & Ordering",
       "port": 3005,
-      "user": "shellnexa_acquisitions_user",
+      "user": "openstacks_acquisitions_user",
       "schemas": ["public", "audit", "config", "orders", "vendors"],
       "extensions": ["uuid-ossp", "pg_trgm"]
     },
     "discovery": {
-      "name": "shellnexa_discovery",
+      "name": "openstacks_discovery",
       "description": "Search & Discovery",
       "port": 3006,
-      "user": "shellnexa_discovery_user",
+      "user": "openstacks_discovery_user",
       "schemas": ["public", "audit", "config", "search", "facets"],
       "extensions": ["uuid-ossp", "pg_trgm", "unaccent", "btree_gin", "btree_gist"]
     },
     "reporting": {
-      "name": "shellnexa_reporting",
+      "name": "openstacks_reporting",
       "description": "Analytics & Reporting",
       "port": 3007,
-      "user": "shellnexa_reporting_user",
+      "user": "openstacks_reporting_user",
       "schemas": ["public", "audit", "config", "analytics", "reports"],
       "extensions": ["uuid-ossp", "pg_trgm", "btree_gin"]
     },
     "multi-tenant": {
-      "name": "shellnexa_multitenant",
+      "name": "openstacks_multitenant",
       "description": "Multi-Tenant Architecture",
       "port": 3008,
-      "user": "shellnexa_multitenant_user",
+      "user": "openstacks_multitenant_user",
       "schemas": ["public", "audit", "config", "tenants", "libraries", "geospatial"],
       "extensions": ["uuid-ossp", "pg_trgm", "postgis", "btree_gin"]
     },
     "ill": {
-      "name": "shellnexa_ill",
+      "name": "openstacks_ill",
       "description": "Interlibrary Loan System",
       "port": 3009,
-      "user": "shellnexa_ill_user",
+      "user": "openstacks_ill_user",
       "schemas": ["public", "audit", "config", "requests", "partners", "protocols"],
       "extensions": ["uuid-ossp", "pg_trgm", "btree_gin"]
     },
     "e-resources": {
-      "name": "shellnexa_eresources",
+      "name": "openstacks_eresources",
       "description": "E-Resource Management",
       "port": 3010,
-      "user": "shellnexa_eresources_user",
+      "user": "openstacks_eresources_user",
       "schemas": ["public", "audit", "config", "licenses", "usage", "access"],
       "extensions": ["uuid-ossp", "pg_trgm", "btree_gin"]
     },
     "digital-repository": {
-      "name": "shellnexa_repository",
+      "name": "openstacks_repository",
       "description": "Digital Repository & Preservation",
       "port": 3011,
-      "user": "shellnexa_repository_user",
+      "user": "openstacks_repository_user",
       "schemas": ["public", "audit", "config", "preservation", "metadata", "collections", "objects"],
       "extensions": ["uuid-ossp", "pg_trgm", "btree_gin", "btree_gist"]
     },
     "ai-ml": {
-      "name": "shellnexa_aiml",
+      "name": "openstacks_aiml",
       "description": "AI/ML Engine & Recommendations",
       "port": 3012,
-      "user": "shellnexa_aiml_user",
+      "user": "openstacks_aiml_user",
       "schemas": ["public", "audit", "config", "models", "predictions", "training", "analytics"],
       "extensions": ["uuid-ossp", "pg_trgm", "btree_gin"]
     }
@@ -113,12 +113,12 @@
       "ssl": false
     },
     "staging": {
-      "host": "staging-db.shellnexa.com",
+      "host": "staging-db.openstacks.com",
       "port": 5432,
       "ssl": true
     },
     "production": {
-      "host": "prod-db.shellnexa.com",
+      "host": "prod-db.openstacks.com",
       "port": 5432,
       "ssl": true,
       "poolSize": 20,

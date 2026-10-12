@@ -37,7 +37,7 @@ async function bootstrap() {
 
   // Swagger documentation
   const config = new DocumentBuilder()
-    .setTitle('ShellNexa API Gateway')
+    .setTitle('OpenStacks API Gateway')
     .setDescription('Enterprise Library Management System API')
     .setVersion('1.0')
     .addBearerAuth()
@@ -54,7 +54,7 @@ async function bootstrap() {
   const port = process.env.PORT || 3001;
   await app.listen(port);
 
-  console.log(`🚀 ShellNexa API Gateway running on port ${port}`);
+  console.log(`🚀 OpenStacks API Gateway running on port ${port}`);
   console.log(`📚 API Documentation: http://localhost:${port}/api/docs`);
 }
 

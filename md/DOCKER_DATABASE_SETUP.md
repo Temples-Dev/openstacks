@@ -1,4 +1,4 @@
-# 🐳 ShellNexa Docker Database Setup
+# 🐳 OpenStacks Docker Database Setup
 
 **Complete containerized database infrastructure for all services**
 
@@ -47,12 +47,12 @@ pnpm run docker:db:cleanup
 
 | Service | Container | Port | Purpose |
 |---------|-----------|------|---------|
-| **PostgreSQL** | `shellnexa-postgres` | 5432 | Primary database server |
-| **Redis** | `shellnexa-redis` | 6379 | Caching and sessions |
-| **Elasticsearch** | `shellnexa-elasticsearch` | 9200 | Search engine |
-| **Kibana** | `shellnexa-kibana` | 5601 | Elasticsearch dashboard |
-| **MailHog** | `shellnexa-mailhog` | 8025/1025 | Email testing |
-| **DB Init** | `shellnexa-db-init` | - | Database setup automation |
+| **PostgreSQL** | `openstacks-postgres` | 5432 | Primary database server |
+| **Redis** | `openstacks-redis` | 6379 | Caching and sessions |
+| **Elasticsearch** | `openstacks-elasticsearch` | 9200 | Search engine |
+| **Kibana** | `openstacks-kibana` | 5601 | Elasticsearch dashboard |
+| **MailHog** | `openstacks-mailhog` | 8025/1025 | Email testing |
+| **DB Init** | `openstacks-db-init` | - | Database setup automation |
 
 ### **Container Features:**
 - ✅ **Persistent volumes** for data retention
@@ -71,18 +71,18 @@ All 12 service databases are created automatically:
 
 | Service | Database | User | Description |
 |---------|----------|------|-------------|
-| **API Gateway** | `shellnexa_gateway` | `shellnexa_gateway_user` | API Gateway & Routing |
-| **Auth** | `shellnexa_auth` | `shellnexa_auth_user` | Authentication & Authorization |
-| **Catalog** | `shellnexa_catalog` | `shellnexa_catalog_user` | Library Catalog Management |
-| **Circulation** | `shellnexa_circulation` | `shellnexa_circulation_user` | Circulation & Lending |
-| **Acquisitions** | `shellnexa_acquisitions` | `shellnexa_acquisitions_user` | Acquisitions & Ordering |
-| **Discovery** | `shellnexa_discovery` | `shellnexa_discovery_user` | Search & Discovery |
-| **Reporting** | `shellnexa_reporting` | `shellnexa_reporting_user` | Analytics & Reporting |
-| **Multi-Tenant** | `shellnexa_multitenant` | `shellnexa_multitenant_user` | Multi-Tenant Architecture |
-| **ILL** | `shellnexa_ill` | `shellnexa_ill_user` | Interlibrary Loan System |
-| **E-Resources** | `shellnexa_eresources` | `shellnexa_eresources_user` | E-Resource Management |
-| **Digital Repository** | `shellnexa_repository` | `shellnexa_repository_user` | Digital Repository & Preservation |
-| **AI/ML** | `shellnexa_aiml` | `shellnexa_aiml_user` | AI/ML Engine & Recommendations |
+| **API Gateway** | `openstacks_gateway` | `openstacks_gateway_user` | API Gateway & Routing |
+| **Auth** | `openstacks_auth` | `openstacks_auth_user` | Authentication & Authorization |
+| **Catalog** | `openstacks_catalog` | `openstacks_catalog_user` | Library Catalog Management |
+| **Circulation** | `openstacks_circulation` | `openstacks_circulation_user` | Circulation & Lending |
+| **Acquisitions** | `openstacks_acquisitions` | `openstacks_acquisitions_user` | Acquisitions & Ordering |
+| **Discovery** | `openstacks_discovery` | `openstacks_discovery_user` | Search & Discovery |
+| **Reporting** | `openstacks_reporting` | `openstacks_reporting_user` | Analytics & Reporting |
+| **Multi-Tenant** | `openstacks_multitenant` | `openstacks_multitenant_user` | Multi-Tenant Architecture |
+| **ILL** | `openstacks_ill` | `openstacks_ill_user` | Interlibrary Loan System |
+| **E-Resources** | `openstacks_eresources` | `openstacks_eresources_user` | E-Resource Management |
+| **Digital Repository** | `openstacks_repository` | `openstacks_repository_user` | Digital Repository & Preservation |
+| **AI/ML** | `openstacks_aiml` | `openstacks_aiml_user` | AI/ML Engine & Recommendations |
 
 ### **PostgreSQL Extensions:**
 Automatically installed extensions:
@@ -180,10 +180,10 @@ pnpm run docker:db:cleanup
 Host: localhost
 Port: 5432
 Admin User: postgres
-Password: shellnexa_secure_password_2024
+Password: openstacks_secure_password_2024
 
 # Example connection string
-postgresql://postgres:shellnexa_secure_password_2024@localhost:5432/shellnexa_catalog
+postgresql://postgres:openstacks_secure_password_2024@localhost:5432/openstacks_catalog
 ```
 
 ### **Service Connections:**
@@ -253,7 +253,7 @@ Elasticsearch:
 ### **Development:**
 ```bash
 # Default configuration
-DB_PASSWORD=shellnexa_secure_password_2024
+DB_PASSWORD=openstacks_secure_password_2024
 NODE_ENV=development
 ```
 
@@ -293,13 +293,13 @@ scripts/
 ### **Backup & Restore:**
 ```bash
 # Backup PostgreSQL
-docker exec shellnexa-postgres pg_dumpall -U postgres > backup.sql
+docker exec openstacks-postgres pg_dumpall -U postgres > backup.sql
 
 # Restore PostgreSQL
-docker exec -i shellnexa-postgres psql -U postgres < backup.sql
+docker exec -i openstacks-postgres psql -U postgres < backup.sql
 
 # Backup Redis
-docker exec shellnexa-redis redis-cli BGSAVE
+docker exec openstacks-redis redis-cli BGSAVE
 ```
 
 ---
@@ -338,7 +338,7 @@ sudo systemctl restart docker
 pnpm run docker:db:status
 
 # Test connection
-docker exec shellnexa-postgres pg_isready -U postgres
+docker exec openstacks-postgres pg_isready -U postgres
 
 # Restart database
 pnpm run docker:db:restart

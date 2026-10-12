@@ -1,12 +1,12 @@
-# ShellNexa — Enterprise-Grade Library Management Software (Functional Feature Brief)
+# OpenStacks — Enterprise-Grade Library Management Software (Functional Feature Brief)
 
-Short pitch: **ShellNexa** is a cloud-native, enterprise-grade Library Management Platform offered as Library-as-a-Service (LaaS). It combines a full integrated library system (ILS) with modern discovery, digital asset management, analytics, automated acquisitions, and extensible APIs so universities, public systems, corporate libraries and consortia can run resilient, multi-tenant, searchable, secure library services at scale.
+Short pitch: **OpenStacks** is a cloud-native, enterprise-grade Library Management Platform offered as Library-as-a-Service (LaaS). It combines a full integrated library system (ILS) with modern discovery, digital asset management, analytics, automated acquisitions, and extensible APIs so universities, public systems, corporate libraries and consortia can run resilient, multi-tenant, searchable, secure library services at scale.
 
-Below I outline the functional surface area (what it *does*), compare/collect features found in existing solutions, and list features to *add* and *improve* so ShellNexa becomes a market-leading LaaS.
+Below I outline the functional surface area (what it *does*), compare/collect features found in existing solutions, and list features to *add* and *improve* so OpenStacks becomes a market-leading LaaS.
 
 ---
 
-# 1 — Core functional modules (what ShellNexa must offer)
+# 1 — Core functional modules (what OpenStacks must offer)
 
 **1.1 Cataloging & Metadata**
 
@@ -104,7 +104,7 @@ Below I outline the functional surface area (what it *does*), compare/collect fe
 
 # 3 — Features common in existing solutions (survey & parity checklist)
 
-Existing mature systems (examples that inspire feature parity): Ex Libris Alma/Primo, OCLC WorldShare, Koha, Evergreen, Sierra, TC Library Systems, Folio, LibGuides, and commercial ILSes. ShellNexa should include or surpass the following standard features:
+Existing mature systems (examples that inspire feature parity): Ex Libris Alma/Primo, OCLC WorldShare, Koha, Evergreen, Sierra, TC Library Systems, Folio, LibGuides, and commercial ILSes. OpenStacks should include or surpass the following standard features:
 
 * MARC support & authority control.
 * Multi-branch circulation and fulfilment.
@@ -264,7 +264,7 @@ Existing mature systems (examples that inspire feature parity): Ex Libris Alma/P
 
 ---
 
-# 9 — KPIs & success metrics for ShellNexa rollout
+# 9 — KPIs & success metrics for OpenStacks rollout
 
 * Time-to-catalog entry (median) after acquisition; target < 30 minutes for typical items.
 * OPAC search time P95 < 250 ms.
@@ -276,6 +276,6 @@ Existing mature systems (examples that inspire feature parity): Ex Libris Alma/P
 
 # 10 — Final words — product voice & positioning
 
-ShellNexa should position itself as: **“A modern, privacy-first LaaS for institutions that need enterprise reliability and modern discovery — with built-in intelligence, extensibility, and operational tooling so libraries can focus on service, not servers.”**
+OpenStacks should position itself as: **“A modern, privacy-first LaaS for institutions that need enterprise reliability and modern discovery — with built-in intelligence, extensibility, and operational tooling so libraries can focus on service, not servers.”**
 
 

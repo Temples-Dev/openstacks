@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🔄 Starting ShellNexa services..."
+echo "🔄 Starting OpenStacks services..."
 
 # Ensure services are healthy
 echo "🏥 Health checking services..."

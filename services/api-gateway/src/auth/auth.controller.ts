@@ -2,7 +2,7 @@ import { Controller, Post, Body, UseGuards, Request } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiBody } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local-auth.guard';
-import { LoginRequest, LoginResponse } from '@shellnexa/types';
+import { LoginRequest, LoginResponse } from '@openstacks/types';
 
 @ApiTags('auth')
 @Controller('auth')

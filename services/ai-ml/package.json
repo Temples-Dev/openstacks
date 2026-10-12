@@ -1,7 +1,7 @@
 {
-  "name": "@shellnexa/ai-ml-service",
+  "name": "@openstacks/ai-ml-service",
   "version": "2.0.0",
-  "description": "ShellNexa AI/ML Service - Intelligent recommendations and predictive analytics",
+  "description": "OpenStacks AI/ML Service - Intelligent recommendations and predictive analytics",
   "main": "dist/main.js",
   "scripts": {
     "build": "nest build",
@@ -27,7 +27,7 @@
     "@nestjs/axios": "^3.1.0",
     "@nestjs/schedule": "^4.1.2",
     "@nestjs/bull": "^10.2.1",
-    "@shellnexa/types": "workspace:*",
+    "@openstacks/types": "workspace:*",
     "typeorm": "^0.3.20",
     "pg": "^8.13.1",
     "class-validator": "^0.14.2",

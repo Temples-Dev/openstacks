@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🚀 Setting up ShellNexa development environment..."
+echo "🚀 Setting up OpenStacks development environment..."
 
 # Wait for services to be ready
 echo "⏳ Waiting for services to start..."
@@ -8,7 +8,7 @@ sleep 10
 
 # Check PostgreSQL connection
 echo "🔍 Checking PostgreSQL connection..."
-until pg_isready -h localhost -p 5432 -U shellnexa; do
+until pg_isready -h localhost -p 5432 -U openstacks; do
   echo "Waiting for PostgreSQL..."
   sleep 2
 done
@@ -63,4 +63,4 @@ echo "  - Elasticsearch: localhost:9200"
 echo "  - Kibana: localhost:5601"
 echo "  - MailHog: localhost:8025"
 echo ""
-echo "🚀 You can now start developing ShellNexa!"
+echo "🚀 You can now start developing OpenStacks!"

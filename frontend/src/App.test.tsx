@@ -10,10 +10,10 @@ afterEach(() => {
 });
 
 describe("App", () => {
-  it("renders the ShellNexa shell with tab navigation", () => {
+  it("renders the OpenStacks shell with tab navigation", () => {
     vi.spyOn(globalThis, "fetch").mockRejectedValue(new Error("offline"));
     render(<App />);
-    expect(screen.getByRole("heading", { name: "ShellNexa" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "OpenStacks" })).toBeInTheDocument();
     const tabs = screen.getAllByRole("tab");
     expect(tabs.map((tab) => tab.textContent)).toEqual(SECTIONS);
     expect(screen.getByRole("tab", { name: "Dashboard" })).toHaveAttribute(

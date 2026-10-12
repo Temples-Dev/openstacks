@@ -11,7 +11,7 @@ async function bootstrap() {
     origin: process.env.ALLOWED_ORIGINS?.split(',') || [
       'http://localhost:3000', 
       'http://localhost:3001',
-      'https://*.shellnexa.com'
+      'https://*.openstacks.com'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-User-ID', 'X-Request-ID'],
@@ -32,7 +32,7 @@ async function bootstrap() {
 
   // Swagger documentation
   const config = new DocumentBuilder()
-    .setTitle('ShellNexa Acquisitions Service')
+    .setTitle('OpenStacks Acquisitions Service')
     .setDescription('Purchase orders, vendors, budgets, and collection development API')
     .setVersion('1.0')
     .addBearerAuth()
@@ -52,7 +52,7 @@ async function bootstrap() {
   const port = process.env.PORT || 3005;
   await app.listen(port);
 
-  console.log(`💰 ShellNexa Acquisitions Service running on port ${port}`);
+  console.log(`💰 OpenStacks Acquisitions Service running on port ${port}`);
   console.log(`📋 API Documentation: http://localhost:${port}/docs`);
   console.log(`🏢 Financial Management: Service ready for procurement operations`);
 }

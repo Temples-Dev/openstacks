@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ShellNexa Docker Database Setup Script
+# OpenStacks Docker Database Setup Script
 # Automatically creates all databases and users for all services
 
 set -e
@@ -22,7 +22,7 @@ DB_ADMIN_DB=${PGDATABASE:-postgres}
 print_header() {
     echo -e "${BLUE}"
     echo "╔══════════════════════════════════════════════════════════════════╗"
-    echo "║                ShellNexa Docker Database Setup                   ║"
+    echo "║                OpenStacks Docker Database Setup                   ║"
     echo "║                   All Services Database Creation                 ║"
     echo "╚══════════════════════════════════════════════════════════════════╝"
     echo -e "${NC}"
@@ -47,18 +47,18 @@ print_section() {
 
 # Database and user definitions
 declare -A DATABASES=(
-    ["api-gateway"]="shellnexa_gateway:shellnexa_gateway_user:gateway_pass:API Gateway & Routing"
-    ["auth"]="shellnexa_auth:shellnexa_auth_user:auth_pass:Authentication & Authorization"
-    ["catalog"]="shellnexa_catalog:shellnexa_catalog_user:catalog_pass:Library Catalog Management"
-    ["circulation"]="shellnexa_circulation:shellnexa_circulation_user:circulation_pass:Circulation & Lending"
-    ["acquisitions"]="shellnexa_acquisitions:shellnexa_acquisitions_user:acquisitions_pass:Acquisitions & Ordering"
-    ["discovery"]="shellnexa_discovery:shellnexa_discovery_user:discovery_pass:Search & Discovery"
-    ["reporting"]="shellnexa_reporting:shellnexa_reporting_user:reporting_pass:Analytics & Reporting"
-    ["multi-tenant"]="shellnexa_multitenant:shellnexa_multitenant_user:multitenant_pass:Multi-Tenant Architecture"
-    ["ill"]="shellnexa_ill:shellnexa_ill_user:ill_pass:Interlibrary Loan System"
-    ["e-resources"]="shellnexa_eresources:shellnexa_eresources_user:eresources_pass:E-Resource Management"
-    ["digital-repository"]="shellnexa_repository:shellnexa_repository_user:repository_pass:Digital Repository & Preservation"
-    ["ai-ml"]="shellnexa_aiml:shellnexa_aiml_user:aiml_pass:AI/ML Engine & Recommendations"
+    ["api-gateway"]="openstacks_gateway:openstacks_gateway_user:gateway_pass:API Gateway & Routing"
+    ["auth"]="openstacks_auth:openstacks_auth_user:auth_pass:Authentication & Authorization"
+    ["catalog"]="openstacks_catalog:openstacks_catalog_user:catalog_pass:Library Catalog Management"
+    ["circulation"]="openstacks_circulation:openstacks_circulation_user:circulation_pass:Circulation & Lending"
+    ["acquisitions"]="openstacks_acquisitions:openstacks_acquisitions_user:acquisitions_pass:Acquisitions & Ordering"
+    ["discovery"]="openstacks_discovery:openstacks_discovery_user:discovery_pass:Search & Discovery"
+    ["reporting"]="openstacks_reporting:openstacks_reporting_user:reporting_pass:Analytics & Reporting"
+    ["multi-tenant"]="openstacks_multitenant:openstacks_multitenant_user:multitenant_pass:Multi-Tenant Architecture"
+    ["ill"]="openstacks_ill:openstacks_ill_user:ill_pass:Interlibrary Loan System"
+    ["e-resources"]="openstacks_eresources:openstacks_eresources_user:eresources_pass:E-Resource Management"
+    ["digital-repository"]="openstacks_repository:openstacks_repository_user:repository_pass:Digital Repository & Preservation"
+    ["ai-ml"]="openstacks_aiml:openstacks_aiml_user:aiml_pass:AI/ML Engine & Recommendations"
 )
 
 database_exists() {
@@ -295,7 +295,7 @@ EOF
 main() {
     print_header
     
-    print_section "Setting up ShellNexa Databases"
+    print_section "Setting up OpenStacks Databases"
     
     local created_count=0
     local existing_count=0

@@ -1,4 +1,4 @@
-# 🗄️ ShellNexa Database Setup Guide
+# 🗄️ OpenStacks Database Setup Guide
 
 **Automated Database Creation & Configuration**
 
@@ -35,18 +35,18 @@ pnpm run db:reset
 
 | Service | Database Name | Port | User | Description |
 |---------|---------------|------|------|-------------|
-| **API Gateway** | `shellnexa_gateway` | 3001 | `shellnexa_gateway_user` | API Gateway & Routing |
-| **Auth** | `shellnexa_auth` | 3002 | `shellnexa_auth_user` | Authentication & Authorization |
-| **Catalog** | `shellnexa_catalog` | 3003 | `shellnexa_catalog_user` | Library Catalog Management |
-| **Circulation** | `shellnexa_circulation` | 3004 | `shellnexa_circulation_user` | Circulation & Lending |
-| **Acquisitions** | `shellnexa_acquisitions` | 3005 | `shellnexa_acquisitions_user` | Acquisitions & Ordering |
-| **Discovery** | `shellnexa_discovery` | 3006 | `shellnexa_discovery_user` | Search & Discovery |
-| **Reporting** | `shellnexa_reporting` | 3007 | `shellnexa_reporting_user` | Analytics & Reporting |
-| **Multi-Tenant** | `shellnexa_multitenant` | 3008 | `shellnexa_multitenant_user` | Multi-Tenant Architecture |
-| **ILL** | `shellnexa_ill` | 3009 | `shellnexa_ill_user` | Interlibrary Loan System |
-| **E-Resources** | `shellnexa_eresources` | 3010 | `shellnexa_eresources_user` | E-Resource Management |
-| **Digital Repository** | `shellnexa_repository` | 3011 | `shellnexa_repository_user` | Digital Repository & Preservation |
-| **AI/ML** | `shellnexa_aiml` | 3012 | `shellnexa_aiml_user` | AI/ML Engine & Recommendations |
+| **API Gateway** | `openstacks_gateway` | 3001 | `openstacks_gateway_user` | API Gateway & Routing |
+| **Auth** | `openstacks_auth` | 3002 | `openstacks_auth_user` | Authentication & Authorization |
+| **Catalog** | `openstacks_catalog` | 3003 | `openstacks_catalog_user` | Library Catalog Management |
+| **Circulation** | `openstacks_circulation` | 3004 | `openstacks_circulation_user` | Circulation & Lending |
+| **Acquisitions** | `openstacks_acquisitions` | 3005 | `openstacks_acquisitions_user` | Acquisitions & Ordering |
+| **Discovery** | `openstacks_discovery` | 3006 | `openstacks_discovery_user` | Search & Discovery |
+| **Reporting** | `openstacks_reporting` | 3007 | `openstacks_reporting_user` | Analytics & Reporting |
+| **Multi-Tenant** | `openstacks_multitenant` | 3008 | `openstacks_multitenant_user` | Multi-Tenant Architecture |
+| **ILL** | `openstacks_ill` | 3009 | `openstacks_ill_user` | Interlibrary Loan System |
+| **E-Resources** | `openstacks_eresources` | 3010 | `openstacks_eresources_user` | E-Resource Management |
+| **Digital Repository** | `openstacks_repository` | 3011 | `openstacks_repository_user` | Digital Repository & Preservation |
+| **AI/ML** | `openstacks_aiml` | 3012 | `openstacks_aiml_user` | AI/ML Engine & Recommendations |
 
 ---
 
@@ -202,7 +202,7 @@ DB_LOGGING=true
 #### **Staging:**
 ```bash
 NODE_ENV=staging
-DB_HOST=staging-db.shellnexa.com
+DB_HOST=staging-db.openstacks.com
 DB_SSL=true
 DB_SYNCHRONIZE=false
 ```
@@ -210,7 +210,7 @@ DB_SYNCHRONIZE=false
 #### **Production:**
 ```bash
 NODE_ENV=production
-DB_HOST=prod-db.shellnexa.com
+DB_HOST=prod-db.openstacks.com
 DB_SSL=true
 DB_SYNCHRONIZE=false
 DB_POOL_SIZE=20
@@ -307,7 +307,7 @@ pnpm run db:reset
 pnpm run db:reset
 
 # Or manually drop
-psql -h localhost -U postgres -c "DROP DATABASE shellnexa_catalog;"
+psql -h localhost -U postgres -c "DROP DATABASE openstacks_catalog;"
 ```
 
 ---
@@ -355,4 +355,4 @@ psql -h localhost -U postgres -c "DROP DATABASE shellnexa_catalog;"
 
 ---
 
-**🎉 Your ShellNexa database infrastructure is now fully automated and ready for enterprise deployment!**
+**🎉 Your OpenStacks database infrastructure is now fully automated and ready for enterprise deployment!**

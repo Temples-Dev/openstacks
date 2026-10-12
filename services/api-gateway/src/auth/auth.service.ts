@@ -1,6 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { User, LoginResponse, JwtPayload } from '@shellnexa/types';
+import { User, LoginResponse, JwtPayload } from '@openstacks/types';
 
 @Injectable()
 export class AuthService {
@@ -13,7 +13,7 @@ export class AuthService {
       return {
         id: '1',
         username: 'admin',
-        email: 'admin@shellnexa.com',
+        email: 'admin@openstacks.com',
         firstName: 'Admin',
         lastName: 'User',
         roles: ['admin'],
@@ -89,7 +89,7 @@ export class AuthService {
     return {
       id,
       username: 'admin',
-      email: 'admin@shellnexa.com',
+      email: 'admin@openstacks.com',
       firstName: 'Admin',
       lastName: 'User',
       roles: ['admin'],

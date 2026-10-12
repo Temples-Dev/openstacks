@@ -28,7 +28,7 @@ async function bootstrap() {
 
   // Swagger documentation
   const config = new DocumentBuilder()
-    .setTitle('ShellNexa Circulation Service')
+    .setTitle('OpenStacks Circulation Service')
     .setDescription('Library Circulation Management API - Check-outs, returns, holds, fines, and patron management')
     .setVersion('1.0')
     .addBearerAuth()
@@ -47,7 +47,7 @@ async function bootstrap() {
   const port = process.env.PORT || 3004;
   await app.listen(port);
 
-  console.log(`🔄 ShellNexa Circulation Service running on port ${port}`);
+  console.log(`🔄 OpenStacks Circulation Service running on port ${port}`);
   console.log(`📋 API Documentation: http://localhost:${port}/docs`);
 }
 

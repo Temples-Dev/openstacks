@@ -11,7 +11,7 @@ async function bootstrap() {
     origin: process.env.ALLOWED_ORIGINS?.split(',') || [
       'http://localhost:3000', 
       'http://localhost:3001',
-      'https://*.shellnexa.com',
+      'https://*.openstacks.com',
       'https://*.library.org'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
@@ -41,7 +41,7 @@ async function bootstrap() {
 
   // Swagger documentation for Digital Repository API
   const config = new DocumentBuilder()
-    .setTitle('ShellNexa Digital Repository Service')
+    .setTitle('OpenStacks Digital Repository Service')
     .setDescription('Institutional repository with digital preservation and scholarly communication')
     .setVersion('2.0')
     .addBearerAuth()
@@ -61,7 +61,7 @@ async function bootstrap() {
   const port = process.env.PORT || 3011;
   await app.listen(port);
 
-  console.log(`📖 ShellNexa Digital Repository Service running on port ${port}`);
+  console.log(`📖 OpenStacks Digital Repository Service running on port ${port}`);
   console.log(`📊 API Documentation: http://localhost:${port}/docs`);
   console.log(`🏛️ Institutional Repository: Ready for scholarly communication`);
 }

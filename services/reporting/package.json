@@ -1,7 +1,7 @@
 {
-  "name": "@shellnexa/reporting-service",
+  "name": "@openstacks/reporting-service",
   "version": "1.0.0",
-  "description": "ShellNexa Reporting Service - Analytics, dashboards, and business intelligence",
+  "description": "OpenStacks Reporting Service - Analytics, dashboards, and business intelligence",
   "main": "dist/main.js",
   "scripts": {
     "build": "nest build",
@@ -26,7 +26,7 @@
     "@nestjs/terminus": "^10.2.3",
     "@nestjs/axios": "^3.1.0",
     "@nestjs/schedule": "^4.1.2",
-    "@shellnexa/types": "workspace:*",
+    "@openstacks/types": "workspace:*",
     "typeorm": "^0.3.20",
     "pg": "^8.13.1",
     "class-validator": "^0.14.2",

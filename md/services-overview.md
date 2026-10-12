@@ -1,12 +1,12 @@
-# ShellNexa Services Overview
+# OpenStacks Services Overview
 
-This document provides a comprehensive overview of all ShellNexa microservices, their responsibilities, and interactions.
+This document provides a comprehensive overview of all OpenStacks microservices, their responsibilities, and interactions.
 
 ---
 
 ## 🏗️ Architecture Overview
 
-ShellNexa follows a **microservices architecture** with each service responsible for a specific domain of library operations. All services communicate through well-defined REST APIs and are orchestrated through a central API Gateway.
+OpenStacks follows a **microservices architecture** with each service responsible for a specific domain of library operations. All services communicate through well-defined REST APIs and are orchestrated through a central API Gateway.
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -49,7 +49,7 @@ ShellNexa follows a **microservices architecture** with each service responsible
 ## 🔐 Auth Service (Port 3002)
 
 ### Purpose
-Central authentication and authorization service managing user accounts, roles, and permissions across the entire ShellNexa ecosystem.
+Central authentication and authorization service managing user accounts, roles, and permissions across the entire OpenStacks ecosystem.
 
 ### Core Responsibilities
 - **User Authentication** - Login, logout, password management
@@ -375,7 +375,7 @@ Dashboard {
 ## 🌐 API Gateway (Port 3001)
 
 ### Purpose
-Central entry point providing authentication, routing, load balancing, and API management for all ShellNexa services.
+Central entry point providing authentication, routing, load balancing, and API management for all OpenStacks services.
 
 ### Core Responsibilities
 - **Request Routing** - Intelligent routing to appropriate services
@@ -481,4 +481,4 @@ Each service is containerized with:
 
 ---
 
-This services overview provides the foundation for understanding ShellNexa's microservices architecture and how each component contributes to the complete library management solution.
+This services overview provides the foundation for understanding OpenStacks's microservices architecture and how each component contributes to the complete library management solution.

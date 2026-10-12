@@ -31,7 +31,7 @@ export default function App() {
       <Toaster />
       <header className="border-b border-zinc-200 bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <h1 className="text-xl font-semibold tracking-tight">ShellNexa</h1>
+          <h1 className="text-xl font-semibold tracking-tight">OpenStacks</h1>
           <p className="text-sm text-zinc-500" role="status">
             {gateway ? `Gateway ${gateway}` : "Connecting to gateway…"}
           </p>

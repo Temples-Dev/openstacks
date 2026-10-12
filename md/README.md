@@ -1,12 +1,12 @@
-# ShellNexa - Modern Integrated Library System
+# OpenStacks - Modern Integrated Library System
 
-**ShellNexa** is a comprehensive, cloud-native library management system built with modern microservices architecture. It provides complete library operations including cataloging, circulation, acquisitions, discovery, and business intelligence.
+**OpenStacks** is a comprehensive, cloud-native library management system built with modern microservices architecture. It provides complete library operations including cataloging, circulation, acquisitions, discovery, and business intelligence.
 
 ---
 
 ## 🌟 Overview
 
-ShellNexa Phase 1 delivers a **production-ready, enterprise-grade library management platform** with six core microservices working seamlessly together to provide comprehensive library operations.
+OpenStacks Phase 1 delivers a **production-ready, enterprise-grade library management platform** with six core microservices working seamlessly together to provide comprehensive library operations.
 
 ### Key Features
 - 🔐 **Secure Authentication** - JWT-based auth with role-based access control
@@ -65,8 +65,8 @@ ShellNexa Phase 1 delivers a **production-ready, enterprise-grade library manage
 
 1. **Clone Repository**
 ```bash
-git clone https://github.com/your-org/shellnexa.git
-cd shellnexa
+git clone https://github.com/your-org/openstacks.git
+cd openstacks
 ```
 
 2. **Environment Configuration**
@@ -291,7 +291,7 @@ kubectl apply -f k8s/
 
 ## 🤝 Contributing
 
-We welcome contributions to ShellNexa! Please see our [Contributing Guidelines](./contributing.md) for details on:
+We welcome contributions to OpenStacks! Please see our [Contributing Guidelines](./contributing.md) for details on:
 
 - Code standards and style guide
 - Pull request process
@@ -310,7 +310,7 @@ We welcome contributions to ShellNexa! Please see our [Contributing Guidelines](
 
 ## 📄 License
 
-ShellNexa is licensed under the [MIT License](../LICENSE). See the LICENSE file for details.
+OpenStacks is licensed under the [MIT License](../LICENSE). See the LICENSE file for details.
 
 ---
 
@@ -324,15 +324,15 @@ ShellNexa is licensed under the [MIT License](../LICENSE). See the LICENSE file 
 
 ### Professional Support
 For enterprise support, training, and custom development:
-- **Email:** support@shellnexa.com
-- **Website:** https://shellnexa.com
-- **Documentation:** https://docs.shellnexa.com
+- **Email:** support@openstacks.com
+- **Website:** https://openstacks.com
+- **Documentation:** https://docs.openstacks.com
 
 ---
 
 ## 🎉 Acknowledgments
 
-ShellNexa Phase 1 represents a complete, production-ready library management system built with modern technologies and best practices. This achievement demonstrates the power of microservices architecture in creating scalable, maintainable enterprise software.
+OpenStacks Phase 1 represents a complete, production-ready library management system built with modern technologies and best practices. This achievement demonstrates the power of microservices architecture in creating scalable, maintainable enterprise software.
 
 **Special thanks to all contributors and the library community for their valuable feedback and support.**
 
@@ -351,4 +351,4 @@ Phase 1 completion enables Phase 2 development:
 
 ---
 
-*ShellNexa - Empowering libraries with modern technology*
+*OpenStacks - Empowering libraries with modern technology*

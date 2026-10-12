@@ -1,6 +1,6 @@
-# ShellNexa Backend Setup Guide
+# OpenStacks Backend Setup Guide
 
-This guide will help you set up the ShellNexa backend development environment using either VS Code Dev Containers or local Docker Compose.
+This guide will help you set up the OpenStacks backend development environment using either VS Code Dev Containers or local Docker Compose.
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ This guide will help you set up the ShellNexa backend development environment us
 
 ```bash
 # Clone and open in VS Code
-code /home/shelemiah/Desktop/git-repositories/shellnexa
+code /home/shelemiah/Desktop/git-repositories/openstacks
 
 # VS Code will prompt to "Reopen in Container" - click yes
 # Or use Command Palette: "Dev Containers: Reopen in Container"
@@ -87,7 +87,7 @@ pnpm run start:dev
 ## Project Structure
 
 ```
-shellnexa/
+openstacks/
 ├── .devcontainer/              # VS Code Dev Container configuration
 │   ├── devcontainer.json
 │   ├── docker-compose.yml
@@ -138,11 +138,11 @@ Once the API Gateway is running:
 ### PostgreSQL
 ```bash
 # Connect to main database
-psql -h localhost -p 5432 -U shellnexa -d shellnexa_dev
+psql -h localhost -p 5432 -U openstacks -d openstacks_dev
 
 # Connect to specific service database
-psql -h localhost -p 5432 -U shellnexa -d auth_service
-psql -h localhost -p 5432 -U shellnexa -d catalog_service
+psql -h localhost -p 5432 -U openstacks -d auth_service
+psql -h localhost -p 5432 -U openstacks -d catalog_service
 ```
 
 ### Redis
@@ -227,8 +227,8 @@ CATALOG_SERVICE_URL=http://localhost:3003
 # PostgreSQL
 DATABASE_HOST=localhost
 DATABASE_PORT=5432
-DATABASE_USER=shellnexa
-DATABASE_PASSWORD=shellnexa_dev
+DATABASE_USER=openstacks
+DATABASE_PASSWORD=openstacks_dev
 
 # Redis
 REDIS_HOST=localhost
@@ -269,7 +269,7 @@ sudo systemctl stop redis
 
 ```bash
 # Test PostgreSQL connection
-pg_isready -h localhost -p 5432 -U shellnexa
+pg_isready -h localhost -p 5432 -U openstacks
 
 # Reset database
 docker-compose -f docker-compose.dev.yml down -v
@@ -308,4 +308,4 @@ docker-compose -f docker-compose.dev.yml up -d
 
 ---
 
-*This setup provides a solid foundation for ShellNexa Phase 1 development. All services are containerized and ready for development.*
+*This setup provides a solid foundation for OpenStacks Phase 1 development. All services are containerized and ready for development.*
