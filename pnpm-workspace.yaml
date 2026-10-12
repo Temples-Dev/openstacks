@@ -1,7 +1,6 @@
 packages:
   - services/*
   - shared/*
-  - backend
   - frontend
 
 onlyBuiltDependencies:
