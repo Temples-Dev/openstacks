@@ -11,7 +11,7 @@ async function bootstrap() {
     origin: process.env.ALLOWED_ORIGINS?.split(',') || [
       'http://localhost:3000', 
       'http://localhost:3001',
-      'https://*.shellnexa.com',
+      'https://*.openstacks.com',
       'https://*.library.org'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
@@ -41,7 +41,7 @@ async function bootstrap() {
 
   // Swagger documentation for AI/ML API
   const config = new DocumentBuilder()
-    .setTitle('ShellNexa AI/ML Service')
+    .setTitle('OpenStacks AI/ML Service')
     .setDescription('Intelligent recommendations and predictive analytics for library operations')
     .setVersion('2.0')
     .addBearerAuth()
@@ -60,7 +60,7 @@ async function bootstrap() {
   const port = process.env.PORT || 3012;
   await app.listen(port);
 
-  console.log(`🤖 ShellNexa AI/ML Service running on port ${port}`);
+  console.log(`🤖 OpenStacks AI/ML Service running on port ${port}`);
   console.log(`📊 API Documentation: http://localhost:${port}/docs`);
   console.log(`🧠 Intelligent Library Analytics: Ready for machine learning`);
 }

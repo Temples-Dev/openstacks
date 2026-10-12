@@ -210,7 +210,7 @@ export class SeedService {
     const users = [
       {
         username: 'admin',
-        email: 'admin@shellnexa.com',
+        email: 'admin@openstacks.com',
         password: 'Admin123!',
         firstName: 'System',
         lastName: 'Administrator',
@@ -220,7 +220,7 @@ export class SeedService {
       },
       {
         username: 'librarian',
-        email: 'librarian@shellnexa.com',
+        email: 'librarian@openstacks.com',
         password: 'Librarian123!',
         firstName: 'Jane',
         lastName: 'Librarian',
@@ -230,7 +230,7 @@ export class SeedService {
       },
       {
         username: 'demo',
-        email: 'demo@shellnexa.com',
+        email: 'demo@openstacks.com',
         password: 'Demo123!',
         firstName: 'Demo',
         lastName: 'User',

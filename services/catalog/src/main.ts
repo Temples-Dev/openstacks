@@ -28,7 +28,7 @@ async function bootstrap() {
 
   // Swagger documentation
   const config = new DocumentBuilder()
-    .setTitle('ShellNexa Catalog Service')
+    .setTitle('OpenStacks Catalog Service')
     .setDescription('Library Catalog Management API - MARC records, bibliographic data, and catalog operations')
     .setVersion('1.0')
     .addBearerAuth()
@@ -46,7 +46,7 @@ async function bootstrap() {
   const port = process.env.PORT || 3003;
   await app.listen(port);
 
-  console.log(`📚 ShellNexa Catalog Service running on port ${port}`);
+  console.log(`📚 OpenStacks Catalog Service running on port ${port}`);
   console.log(`📖 API Documentation: http://localhost:${port}/docs`);
 }
 

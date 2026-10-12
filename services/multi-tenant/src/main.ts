@@ -11,7 +11,7 @@ async function bootstrap() {
     origin: process.env.ALLOWED_ORIGINS?.split(',') || [
       'http://localhost:3000', 
       'http://localhost:3001',
-      'https://*.shellnexa.com',
+      'https://*.openstacks.com',
       'https://*.library.org'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
@@ -41,7 +41,7 @@ async function bootstrap() {
 
   // Swagger documentation for multi-tenant API
   const config = new DocumentBuilder()
-    .setTitle('ShellNexa Multi-Tenant Service')
+    .setTitle('OpenStacks Multi-Tenant Service')
     .setDescription('Library system and branch management for multi-institutional operations')
     .setVersion('2.0')
     .addBearerAuth()
@@ -61,7 +61,7 @@ async function bootstrap() {
   const port = process.env.PORT || 3008;
   await app.listen(port);
 
-  console.log(`🏢 ShellNexa Multi-Tenant Service running on port ${port}`);
+  console.log(`🏢 OpenStacks Multi-Tenant Service running on port ${port}`);
   console.log(`📚 API Documentation: http://localhost:${port}/docs`);
   console.log(`🌐 Multi-Institutional Support: Ready for library systems and consortiums`);
 }

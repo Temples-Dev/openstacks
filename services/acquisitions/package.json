@@ -1,7 +1,7 @@
 {
-  "name": "@shellnexa/acquisitions-service",
+  "name": "@openstacks/acquisitions-service",
   "version": "1.0.0",
-  "description": "ShellNexa Acquisitions Service - Purchase orders, vendors, budgets, and collection development",
+  "description": "OpenStacks Acquisitions Service - Purchase orders, vendors, budgets, and collection development",
   "main": "dist/main.js",
   "scripts": {
     "build": "nest build",
@@ -26,7 +26,7 @@
     "@nestjs/terminus": "^10.2.3",
     "@nestjs/axios": "^3.1.0",
     "@nestjs/schedule": "^4.1.2",
-    "@shellnexa/types": "workspace:*",
+    "@openstacks/types": "workspace:*",
     "typeorm": "^0.3.20",
     "pg": "^8.13.1",
     "class-validator": "^0.14.2",

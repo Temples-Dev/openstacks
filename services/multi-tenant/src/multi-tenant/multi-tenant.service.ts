@@ -8,7 +8,7 @@ import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { LibrarySystem } from '../library-systems/entities/library-system.entity';
 import { Library } from '../libraries/entities/library.entity';
 import { Branch } from '../libraries/entities/branch.entity';
-import { TenantContext, LibrarySystemConfig, LibraryConfig, BranchConfig } from '@shellnexa/types';
+import { TenantContext, LibrarySystemConfig, LibraryConfig, BranchConfig } from '@openstacks/types';
 
 @Injectable()
 export class MultiTenantService {
@@ -418,7 +418,7 @@ export class MultiTenantService {
     // Return database configuration based on system type and subscription
     return {
       tenantId: systemId,
-      databaseName: `shellnexa_${system.code.toLowerCase()}`,
+      databaseName: `openstacks_${system.code.toLowerCase()}`,
       connectionString: process.env.DATABASE_URL, // Would be tenant-specific in production
       schemaName: system.code.toLowerCase(),
       isShared: system.type === 'consortium',

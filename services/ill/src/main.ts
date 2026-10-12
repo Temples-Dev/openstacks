@@ -11,7 +11,7 @@ async function bootstrap() {
     origin: process.env.ALLOWED_ORIGINS?.split(',') || [
       'http://localhost:3000', 
       'http://localhost:3001',
-      'https://*.shellnexa.com',
+      'https://*.openstacks.com',
       'https://*.library.org'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
@@ -40,7 +40,7 @@ async function bootstrap() {
 
   // Swagger documentation for ILL API
   const config = new DocumentBuilder()
-    .setTitle('ShellNexa Interlibrary Loan Service')
+    .setTitle('OpenStacks Interlibrary Loan Service')
     .setDescription('Resource sharing and interlibrary loan management for library networks')
     .setVersion('2.0')
     .addBearerAuth()
@@ -58,7 +58,7 @@ async function bootstrap() {
   const port = process.env.PORT || 3009;
   await app.listen(port);
 
-  console.log(`📚 ShellNexa ILL Service running on port ${port}`);
+  console.log(`📚 OpenStacks ILL Service running on port ${port}`);
   console.log(`🔗 API Documentation: http://localhost:${port}/docs`);
   console.log(`🌐 Interlibrary Loan Management: Ready for resource sharing`);
 }

@@ -6,16 +6,16 @@ services:
     image: postgres:16-alpine
     restart: unless-stopped
     environment:
-      POSTGRES_USER: shellnexa
-      POSTGRES_PASSWORD: shellnexa_dev
-      POSTGRES_DB: shellnexa_dev
+      POSTGRES_USER: openstacks
+      POSTGRES_PASSWORD: openstacks_dev
+      POSTGRES_DB: openstacks_dev
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./.devcontainer/init-scripts:/docker-entrypoint-initdb.d
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U shellnexa"]
+      test: ["CMD-SHELL", "pg_isready -U openstacks"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -105,4 +105,4 @@ volumes:
 
 networks:
   default:
-    name: shellnexa-dev
+    name: openstacks-dev

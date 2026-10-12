@@ -11,7 +11,7 @@ async function bootstrap() {
     origin: process.env.ALLOWED_ORIGINS?.split(',') || [
       'http://localhost:3000', 
       'http://localhost:3001',
-      'https://*.shellnexa.com',
+      'https://*.openstacks.com',
       'https://*.library.org'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
@@ -41,7 +41,7 @@ async function bootstrap() {
 
   // Swagger documentation for E-Resources API
   const config = new DocumentBuilder()
-    .setTitle('ShellNexa E-Resource Management Service')
+    .setTitle('OpenStacks E-Resource Management Service')
     .setDescription('Digital license and access control for electronic resources')
     .setVersion('2.0')
     .addBearerAuth()
@@ -59,7 +59,7 @@ async function bootstrap() {
   const port = process.env.PORT || 3010;
   await app.listen(port);
 
-  console.log(`🌐 ShellNexa E-Resources Service running on port ${port}`);
+  console.log(`🌐 OpenStacks E-Resources Service running on port ${port}`);
   console.log(`📊 API Documentation: http://localhost:${port}/docs`);
   console.log(`🔐 Digital License Management: Ready for e-resource access control`);
 }

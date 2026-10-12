@@ -1,10 +1,10 @@
 #!/bin/bash
 
-echo "🗃️ Setting up ShellNexa development data..."
+echo "🗃️ Setting up OpenStacks development data..."
 
 # Wait for PostgreSQL to be ready
 echo "⏳ Waiting for PostgreSQL to be ready..."
-until pg_isready -h localhost -p 5432 -U shellnexa; do
+until pg_isready -h localhost -p 5432 -U openstacks; do
   echo "Waiting for PostgreSQL..."
   sleep 2
 done
@@ -13,7 +13,7 @@ done
 echo "📊 Creating sample data..."
 
 # Connect to each service database and create sample tables
-psql -h localhost -p 5432 -U shellnexa -d auth_service -c "
+psql -h localhost -p 5432 -U openstacks -d auth_service -c "
 CREATE TABLE IF NOT EXISTS users (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   username VARCHAR(255) UNIQUE NOT NULL,
@@ -29,13 +29,13 @@ CREATE TABLE IF NOT EXISTS users (
 
 INSERT INTO users (username, email, password_hash, first_name, last_name, is_active, email_verified)
 VALUES 
-  ('admin', 'admin@shellnexa.com', '\$2b\$10\$hash', 'Admin', 'User', true, true),
-  ('librarian', 'librarian@shellnexa.com', '\$2b\$10\$hash', 'Jane', 'Librarian', true, true),
-  ('patron', 'patron@shellnexa.com', '\$2b\$10\$hash', 'John', 'Patron', true, true)
+  ('admin', 'admin@openstacks.com', '\$2b\$10\$hash', 'Admin', 'User', true, true),
+  ('librarian', 'librarian@openstacks.com', '\$2b\$10\$hash', 'Jane', 'Librarian', true, true),
+  ('patron', 'patron@openstacks.com', '\$2b\$10\$hash', 'John', 'Patron', true, true)
 ON CONFLICT (username) DO NOTHING;
 "
 
-psql -h localhost -p 5432 -U shellnexa -d catalog_service -c "
+psql -h localhost -p 5432 -U openstacks -d catalog_service -c "
 CREATE TABLE IF NOT EXISTS bibliographic_records (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   title VARCHAR(500) NOT NULL,

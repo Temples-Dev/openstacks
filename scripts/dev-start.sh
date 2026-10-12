@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🚀 Starting ShellNexa Development Environment"
+echo "🚀 Starting OpenStacks Development Environment"
 echo "============================================="
 
 # Check if Docker is running
@@ -26,7 +26,7 @@ docker-compose -f docker-compose.dev.yml up -d postgres redis elasticsearch kiba
 
 echo "⏳ Waiting for services to be ready..."
 echo "   - PostgreSQL..."
-until docker-compose -f docker-compose.dev.yml exec -T postgres pg_isready -U shellnexa > /dev/null 2>&1; do
+until docker-compose -f docker-compose.dev.yml exec -T postgres pg_isready -U openstacks > /dev/null 2>&1; do
   sleep 2
 done
 

@@ -1,7 +1,7 @@
 {
-  "name": "@shellnexa/catalog-service",
+  "name": "@openstacks/catalog-service",
   "version": "1.0.0",
-  "description": "ShellNexa Catalog Management Service",
+  "description": "OpenStacks Catalog Management Service",
   "main": "dist/main.js",
   "scripts": {
     "build": "nest build",
@@ -28,7 +28,7 @@
     "@nestjs/config": "^3.3.0",
     "@nestjs/swagger": "^8.0.7",
     "@nestjs/terminus": "^10.2.3",
-    "@shellnexa/types": "workspace:*",
+    "@openstacks/types": "workspace:*",
     "typeorm": "^0.3.20",
     "pg": "^8.12.0",
     "class-validator": "^0.14.2",

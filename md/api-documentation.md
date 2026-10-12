@@ -1,6 +1,6 @@
-# ShellNexa API Documentation
+# OpenStacks API Documentation
 
-This document provides comprehensive API documentation for all ShellNexa services, including endpoints, request/response formats, and integration examples.
+This document provides comprehensive API documentation for all OpenStacks services, including endpoints, request/response formats, and integration examples.
 
 ---
 
@@ -1005,4 +1005,4 @@ X-RateLimit-Reset: 1634208000
 
 ---
 
-This API documentation provides comprehensive coverage of all ShellNexa service endpoints. For interactive API exploration, visit the Swagger UI at each service's `/docs` endpoint.
+This API documentation provides comprehensive coverage of all OpenStacks service endpoints. For interactive API exploration, visit the Swagger UI at each service's `/docs` endpoint.

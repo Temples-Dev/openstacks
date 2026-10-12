@@ -1,5 +1,5 @@
 {
-  "name": "ShellNexa Development Environment",
+  "name": "OpenStacks Development Environment",
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",

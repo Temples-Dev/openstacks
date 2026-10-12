@@ -1,7 +1,7 @@
 {
-  "name": "@shellnexa/circulation-service",
+  "name": "@openstacks/circulation-service",
   "version": "1.0.0",
-  "description": "ShellNexa Circulation Management Service",
+  "description": "OpenStacks Circulation Management Service",
   "main": "dist/main.js",
   "scripts": {
     "build": "nest build",
@@ -28,7 +28,7 @@
     "@nestjs/swagger": "^8.0.7",
     "@nestjs/terminus": "^10.2.3",
     "@nestjs/schedule": "^4.1.1",
-    "@shellnexa/types": "workspace:*",
+    "@openstacks/types": "workspace:*",
     "typeorm": "^0.3.20",
     "pg": "^8.12.0",
     "class-validator": "^0.14.2",

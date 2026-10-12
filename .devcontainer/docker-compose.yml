@@ -21,9 +21,9 @@ services:
       - postgres-data:/var/lib/postgresql/data
       - ./init-scripts:/docker-entrypoint-initdb.d
     environment:
-      POSTGRES_USER: shellnexa
-      POSTGRES_PASSWORD: shellnexa_dev
-      POSTGRES_DB: shellnexa_dev
+      POSTGRES_USER: openstacks
+      POSTGRES_PASSWORD: openstacks_dev
+      POSTGRES_DB: openstacks_dev
       POSTGRES_MULTIPLE_DATABASES: "auth_service,catalog_service,circulation_service,acquisitions_service"
     ports:
       - "5432:5432"

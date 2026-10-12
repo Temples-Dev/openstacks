@@ -1,7 +1,7 @@
 {
-  "name": "@shellnexa/api-gateway",
+  "name": "@openstacks/api-gateway",
   "version": "1.0.0",
-  "description": "ShellNexa API Gateway Service",
+  "description": "OpenStacks API Gateway Service",
   "main": "dist/main.js",
   "scripts": {
     "build": "nest build",
@@ -25,7 +25,7 @@
     "@nestjs/throttler": "^6.2.1",
     "@nestjs/jwt": "^10.2.0",
     "@nestjs/passport": "^10.0.3",
-    "@shellnexa/types": "workspace:*",
+    "@openstacks/types": "workspace:*",
     "helmet": "^8.0.0",
     "compression": "^1.7.5",
     "cors": "^2.8.5",

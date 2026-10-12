@@ -1,7 +1,7 @@
 {
-  "name": "@shellnexa/ill-service",
+  "name": "@openstacks/ill-service",
   "version": "2.0.0",
-  "description": "ShellNexa Interlibrary Loan Service - Resource sharing between library systems",
+  "description": "OpenStacks Interlibrary Loan Service - Resource sharing between library systems",
   "main": "dist/main.js",
   "scripts": {
     "build": "nest build",
@@ -27,7 +27,7 @@
     "@nestjs/axios": "^3.1.0",
     "@nestjs/schedule": "^4.1.2",
     "@nestjs/bull": "^10.2.1",
-    "@shellnexa/types": "workspace:*",
+    "@openstacks/types": "workspace:*",
     "typeorm": "^0.3.20",
     "pg": "^8.13.1",
     "class-validator": "^0.14.2",

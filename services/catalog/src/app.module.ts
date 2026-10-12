@@ -35,8 +35,8 @@ import { AuthorityRecord } from './authorities/entities/authority-record.entity'
         type: 'postgres',
         host: configService.get('DB_HOST', 'localhost'),
         port: configService.get('DB_PORT', 5432),
-        username: configService.get('DB_USERNAME', 'shellnexa_app'),
-        password: configService.get('DB_PASSWORD', 'shellnexa_app_dev'),
+        username: configService.get('DB_USERNAME', 'openstacks_app'),
+        password: configService.get('DB_PASSWORD', 'openstacks_app_dev'),
         database: configService.get('DB_DATABASE', 'catalog_service'),
         entities: [
           CatalogRecord,

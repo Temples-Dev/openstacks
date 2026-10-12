@@ -1,4 +1,4 @@
-// Multi-Tenant Architecture Types for ShellNexa Phase 2
+// Multi-Tenant Architecture Types for OpenStacks Phase 2
 
 export interface LibrarySystemConfig {
   id: string;

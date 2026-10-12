@@ -1,6 +1,6 @@
-# ShellNexa Deployment Guide
+# OpenStacks Deployment Guide
 
-This guide provides deployment instructions for ShellNexa in various environments.
+This guide provides deployment instructions for OpenStacks in various environments.
 
 ---
 
@@ -40,8 +40,8 @@ Load Balancer → API Gateway (3001) → Microservices
 
 1. **Clone and Configure**
 ```bash
-git clone https://github.com/your-org/shellnexa.git
-cd shellnexa
+git clone https://github.com/your-org/openstacks.git
+cd openstacks
 cp .env.example .env
 # Copy .env files for each service
 ```
@@ -76,7 +76,7 @@ services:
     command: redis-server --requirepass ${REDIS_PASSWORD}
   
   api-gateway:
-    image: shellnexa/api-gateway:latest
+    image: openstacks/api-gateway:latest
     environment:
       - NODE_ENV=production
       - DB_HOST=postgres
@@ -97,7 +97,7 @@ services:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: shellnexa
+  name: openstacks
 ```
 
 2. **ConfigMap**
@@ -105,8 +105,8 @@ metadata:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: shellnexa-config
-  namespace: shellnexa
+  name: openstacks-config
+  namespace: openstacks
 data:
   NODE_ENV: "production"
   DB_HOST: "postgres-service"
@@ -118,7 +118,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: api-gateway
-  namespace: shellnexa
+  namespace: openstacks
 spec:
   replicas: 3
   selector:
@@ -128,7 +128,7 @@ spec:
     spec:
       containers:
       - name: api-gateway
-        image: shellnexa/api-gateway:latest
+        image: openstacks/api-gateway:latest
         ports:
         - containerPort: 3001
         livenessProbe:
@@ -164,7 +164,7 @@ spec:
 ### AWS EKS
 ```bash
 # Create cluster
-eksctl create cluster --name shellnexa-cluster --region us-west-2
+eksctl create cluster --name openstacks-cluster --region us-west-2
 
 # Deploy application
 kubectl apply -f k8s/
@@ -173,7 +173,7 @@ kubectl apply -f k8s/
 ### Google GKE
 ```bash
 # Create cluster
-gcloud container clusters create shellnexa-cluster --zone us-central1-a
+gcloud container clusters create openstacks-cluster --zone us-central1-a
 
 # Deploy
 kubectl apply -f k8s/
@@ -206,7 +206,7 @@ upstream api_gateway {
 
 server {
     listen 443 ssl;
-    server_name api.shellnexa.com;
+    server_name api.openstacks.com;
     
     location / {
         proxy_pass http://api_gateway;
@@ -222,7 +222,7 @@ server {
 ### Prometheus Configuration
 ```yaml
 scrape_configs:
-  - job_name: 'shellnexa-services'
+  - job_name: 'openstacks-services'
     static_configs:
       - targets: 
         - 'api-gateway:9090'
@@ -243,14 +243,14 @@ All services expose:
 ### SSL Configuration
 ```bash
 # Let's Encrypt SSL
-certbot certonly --webroot -w /var/www/html -d api.shellnexa.com
+certbot certonly --webroot -w /var/www/html -d api.openstacks.com
 ```
 
 ### Database Security
 ```sql
 -- Create service users
-CREATE USER shellnexa_auth WITH PASSWORD 'secure_password';
-GRANT CONNECT ON DATABASE shellnexa_auth TO shellnexa_auth;
+CREATE USER openstacks_auth WITH PASSWORD 'secure_password';
+GRANT CONNECT ON DATABASE openstacks_auth TO openstacks_auth;
 ```
 
 ---
@@ -259,7 +259,7 @@ GRANT CONNECT ON DATABASE shellnexa_auth TO shellnexa_auth;
 
 ### GitHub Actions
 ```yaml
-name: Deploy ShellNexa
+name: Deploy OpenStacks
 on:
   push:
     branches: [main]
@@ -271,7 +271,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Build and Deploy
         run: |
-          docker build -t shellnexa/api-gateway .
+          docker build -t openstacks/api-gateway .
           kubectl apply -f k8s/
 ```
 
@@ -283,7 +283,7 @@ jobs:
 ```bash
 #!/bin/bash
 DATE=$(date +%Y%m%d_%H%M%S)
-pg_dump -h postgres -U postgres shellnexa > backup_${DATE}.sql
+pg_dump -h postgres -U postgres openstacks > backup_${DATE}.sql
 ```
 
 ### Scaling Commands
@@ -292,7 +292,7 @@ pg_dump -h postgres -U postgres shellnexa > backup_${DATE}.sql
 kubectl scale deployment api-gateway --replicas=5
 
 # Update image
-kubectl set image deployment/api-gateway api-gateway=shellnexa/api-gateway:v2.0
+kubectl set image deployment/api-gateway api-gateway=openstacks/api-gateway:v2.0
 ```
 
 ---
@@ -315,9 +315,9 @@ kubectl logs deployment/api-gateway
 curl http://localhost:3001/health
 
 # Database connection test
-psql -h postgres -U postgres -d shellnexa
+psql -h postgres -U postgres -d openstacks
 ```
 
 ---
 
-This deployment guide covers the essential steps for deploying ShellNexa in development and production environments. For detailed configuration options, refer to individual service documentation.
+This deployment guide covers the essential steps for deploying OpenStacks in development and production environments. For detailed configuration options, refer to individual service documentation.

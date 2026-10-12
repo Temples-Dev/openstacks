@@ -1,4 +1,4 @@
-# 📚 ShellNexa
+# 📚 OpenStacks
 
 **Open-source library management system**
 
@@ -14,7 +14,7 @@
 
 ## 🌟 **Overview**
 
-ShellNexa is a comprehensive library management ecosystem that transforms traditional library operations into intelligent, automated, and scalable digital experiences. Built with modern microservices architecture, it supports everything from single libraries to massive multi-branch consortiums.
+OpenStacks is a comprehensive library management ecosystem that transforms traditional library operations into intelligent, automated, and scalable digital experiences. Built with modern microservices architecture, it supports everything from single libraries to massive multi-branch consortiums.
 
 ### **🎯 Key Features**
 
@@ -32,7 +32,7 @@ ShellNexa is a comprehensive library management ecosystem that transforms tradit
 
 ### **Microservices Platform**
 
-ShellNexa consists of **12 production-ready microservices** organized into two phases:
+OpenStacks consists of **12 production-ready microservices** organized into two phases:
 
 #### **Phase 1: Foundation Services**
 | Service | Port | Description |
@@ -91,8 +91,8 @@ ShellNexa consists of **12 production-ready microservices** organized into two p
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-org/shellnexa.git
-   cd shellnexa
+   git clone https://github.com/your-org/openstacks.git
+   cd openstacks
    ```
 
 2. **Install dependencies:**
@@ -179,18 +179,18 @@ pnpm run typecheck             # TypeScript type checking
 ### **Multi-Database Design**
 Each microservice has its own dedicated PostgreSQL database for complete isolation:
 
-- `shellnexa_gateway` - API Gateway routing and rate limiting
-- `shellnexa_auth` - User authentication and sessions
-- `shellnexa_catalog` - Bibliographic records and metadata
-- `shellnexa_circulation` - Lending transactions and patron data
-- `shellnexa_acquisitions` - Orders, vendors, and budgets
-- `shellnexa_discovery` - Search indices and facets
-- `shellnexa_reporting` - Analytics and report data
-- `shellnexa_multitenant` - Tenant and branch management
-- `shellnexa_ill` - Interlibrary loan requests and partners
-- `shellnexa_eresources` - Digital licenses and usage statistics
-- `shellnexa_repository` - Digital objects and preservation metadata
-- `shellnexa_aiml` - ML models and prediction data
+- `openstacks_gateway` - API Gateway routing and rate limiting
+- `openstacks_auth` - User authentication and sessions
+- `openstacks_catalog` - Bibliographic records and metadata
+- `openstacks_circulation` - Lending transactions and patron data
+- `openstacks_acquisitions` - Orders, vendors, and budgets
+- `openstacks_discovery` - Search indices and facets
+- `openstacks_reporting` - Analytics and report data
+- `openstacks_multitenant` - Tenant and branch management
+- `openstacks_ill` - Interlibrary loan requests and partners
+- `openstacks_eresources` - Digital licenses and usage statistics
+- `openstacks_repository` - Digital objects and preservation metadata
+- `openstacks_aiml` - ML models and prediction data
 
 ### **Extensions & Features**
 - **PostGIS** for geospatial library discovery
@@ -211,8 +211,8 @@ Each service has its own `.env` file with service-specific configuration:
 # Database
 DB_HOST=localhost
 DB_PORT=5432
-DB_NAME=shellnexa_[service]
-DB_USERNAME=shellnexa_[service]_user
+DB_NAME=openstacks_[service]
+DB_USERNAME=openstacks_[service]_user
 DB_PASSWORD=[secure_password]
 
 # Redis
@@ -344,7 +344,7 @@ POST /api/v1/circulation/reserve     # Reserve item
 
 ### **Tenant Isolation**
 - **Database per tenant:** Complete data isolation
-- **Subdomain routing:** tenant.shellnexa.com
+- **Subdomain routing:** tenant.openstacks.com
 - **Custom branding:** Per-tenant UI customization
 - **Feature flags:** Tenant-specific feature control
 
@@ -450,8 +450,8 @@ We welcome contributions from the library and developer communities!
 ### **Development Setup**
 ```bash
 # Clone your fork
-git clone https://github.com/your-username/shellnexa.git
-cd shellnexa
+git clone https://github.com/your-username/openstacks.git
+cd openstacks
 
 # Install dependencies
 pnpm install
@@ -492,7 +492,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **GitHub Issues:** Bug reports and feature requests
 - **Discussions:** Community Q&A and ideas
 - **Discord:** Real-time chat and support
-- **Stack Overflow:** Technical questions (tag: shellnexa)
+- **Stack Overflow:** Technical questions (tag: openstacks)
 
 ### **Enterprise Support**
 - **Professional Services:** Implementation and training
@@ -501,10 +501,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Consulting:** Library automation consulting
 
 ### **Contact**
-- **Website:** https://shellnexa.com
-- **Email:** support@shellnexa.com
-- **Twitter:** @ShellNexa
-- **LinkedIn:** ShellNexa
+- **Website:** https://openstacks.com
+- **Email:** support@openstacks.com
+- **Twitter:** @OpenStacks
+- **LinkedIn:** OpenStacks
 
 ---
 
@@ -525,6 +525,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**🌟 Transform your library with ShellNexa - Where tradition meets innovation!**
+**🌟 Transform your library with OpenStacks - Where tradition meets innovation!**
 
-*Built with ❤️ by the ShellNexa team and the global library community.*
+*Built with ❤️ by the OpenStacks team and the global library community.*

@@ -1,7 +1,7 @@
 {
-  "name": "@shellnexa/discovery-service",
+  "name": "@openstacks/discovery-service",
   "version": "1.0.0",
-  "description": "ShellNexa Discovery Service - Public catalog search and patron self-service",
+  "description": "OpenStacks Discovery Service - Public catalog search and patron self-service",
   "main": "dist/main.js",
   "scripts": {
     "build": "nest build",
@@ -24,7 +24,7 @@
     "@nestjs/platform-express": "^11.0.1",
     "@nestjs/swagger": "^8.0.7",
     "@nestjs/terminus": "^10.2.3",
-    "@shellnexa/types": "workspace:*",
+    "@openstacks/types": "workspace:*",
     "axios": "^1.7.7",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",

@@ -1,3 +1,3 @@
-# ShellNexa Documentation
+# OpenStacks Documentation
 
-## Build comprehensive documentation for ShellNexa services
+## Build comprehensive documentation for OpenStacks services

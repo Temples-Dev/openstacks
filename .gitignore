@@ -8,3 +8,6 @@ coverage/
 *.log
 .DS_Store
 .turbo
+
+*.tsbuildinfo
+node_modules
